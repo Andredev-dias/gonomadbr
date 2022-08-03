@@ -64,7 +64,7 @@ width:280px;
 height:400px;
 border-radius: 20px;
 color: white;
-border: 2px solid var(--cyan);
+border: none;
 gap: 10px;
 `;
 

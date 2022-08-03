@@ -1,15 +1,4 @@
-import styled, {css} from "styled-components";
-import {FcFilledFilter} from "react-icons/fc";
-
-const IconFilterCSS = css`
-  width: 3rem;
-  height: 3rem;
-  color: var(--white);
-`;
-
-export const IconFilter = styled(FcFilledFilter)`
-${IconFilterCSS};
-`;
+import styled from "styled-components";
 
 export const Container = styled.div`
 width: 99vw;
@@ -27,7 +16,7 @@ height: 100px;
 background: var(--light-background);
 position: sticky;
 top: 0;
-border: 2px solid var(--cyan);
+border: none;
 box-shadow: 1px 1px 1000px 1px var(--cyan) ;
 border-radius: 10px;
 gap: 1rem;

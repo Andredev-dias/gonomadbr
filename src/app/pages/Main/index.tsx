@@ -33,14 +33,13 @@ import Aracaju from "../../../assets/cities/aracaju.jpg";
 import Palmas from "../../../assets/cities/palmas.jpg";
 
 // Import do styled components
-import {Container, FilterMenu, WrapPrincipal, PrincipalSection, InputSearch, BtnFilter, IconFilter} from './styles';
+import {Container, FilterMenu, WrapPrincipal, PrincipalSection, InputSearch, BtnFilter} from './styles';
 
 const Main = () => {
     return(
         <Container>
             <MainHeader/>
             <FilterMenu>
-                <IconFilter/>
                 <InputSearch placeholder="Type your search" type="text" />
                 <BtnFilter>City</BtnFilter>
                 <BtnFilter>State</BtnFilter>

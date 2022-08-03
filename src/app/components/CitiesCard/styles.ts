@@ -13,12 +13,11 @@ export const Container = styled.button<IContainer>`
   height: 250px;
   background: var(--background);
   border-radius: 20px;
-  border: 1px solid var(--white);
+  border: none;
   overflow: hidden;
   position: relative;
   :hover{
     cursor: pointer;
-    box-shadow: 1px 1px 10px 1px var(--cyan) ;
   }
 `;
 
