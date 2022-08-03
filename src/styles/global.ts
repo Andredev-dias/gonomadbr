@@ -14,10 +14,10 @@ const GlobalStyle = createGlobalStyle`
   box-sizing: border-box;
   word-break: normal;
 }
-html, body, #root {
+/* html, body, #root {
   width: 100%;
   height: 100%;
-}
+} */
 
 body, header, code {
   font-family: "Co Text", sans-serif;

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 width: 99vw;
-height: 200vh;
+height: auto;
 background-color: blue;
 `;
 
@@ -22,10 +22,9 @@ top: 0;
 export const WrapPrincipal = styled.main`
 width: 99vw;
 height: auto;
-background-color: white;
+background-color: transparent;
 padding: 2vw;
-position: sticky;
-top: 100px;
+
 `;
 
 export const PrincipalSection = styled.main`
