@@ -14,19 +14,10 @@ const GlobalStyle = createGlobalStyle`
   box-sizing: border-box;
   word-break: normal;
 }
-/* html, body, #root {
-  width: 100%;
-  height: 100%;
-} */
 
 body, header, code {
   font-family: "Co Text", sans-serif;
 }
-
-/* body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-} */
 
 :root {
   --background: #282a36;
