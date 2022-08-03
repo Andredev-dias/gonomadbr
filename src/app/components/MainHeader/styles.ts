@@ -9,10 +9,7 @@ gap: 20px;
 width: 100%;
 height: 40vh;
 overflow: hidden;
-background-color: blue;
-/* position: fixed;
-top: 0;
-left: 0; */
+
 `;
 
 export const Section = styled.div`

@@ -23,13 +23,16 @@ body, header, code {
   font-family: "Co Text", sans-serif;
 }
 
-body {
+/* body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+} */
 
 :root {
-  --light-grey: #fcfcfc;
+  --background: #282a36;
+  --light-background: #44475a;
+  --white: #f8f8f2;
+  --cyan:#8be9fd;
 }
 `;
 
