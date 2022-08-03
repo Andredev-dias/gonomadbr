@@ -31,6 +31,7 @@ border: 2px solid var(--cyan);
 box-shadow: 1px 1px 1000px 1px var(--cyan) ;
 border-radius: 10px;
 gap: 1rem;
+z-index: 100;
 `;
 
 export const InputSearch = styled.input`
@@ -78,7 +79,6 @@ padding: 2vw;
 export const PrincipalSection = styled.main`
 width: 100%;
 height: auto;
-background-color: red;
 display: flex;
 flex-direction: row;
 align-items: center;
@@ -86,6 +86,6 @@ justify-content: center;
 flex-wrap: wrap;
 gap: 20px;
 padding: 2vw;
-
+z-index: -2;
 `;
 

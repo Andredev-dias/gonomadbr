@@ -6,6 +6,7 @@ const IconLoginCSS = css`
   width: 10rem;
   height: 10rem;
   color: var(--cyan);
+  box-shadow: 2px 2px var(--background);
 `;
 
 const IconBrazilCSS = css`
@@ -109,9 +110,11 @@ color: var(--white);
 
 export const TextHeader = styled.h1`
 font-size: 6rem;
+text-shadow: 2px 2px var(--background);
 `;
 
 export const SubTitle = styled.p`
 font-size: 1.6rem;
 color: var(--cyan);
+text-shadow: 2px 2px var(--background);
 `;

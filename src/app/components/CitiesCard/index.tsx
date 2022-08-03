@@ -5,7 +5,7 @@ import React from "react";
 import { IContainer } from "./interfaces";
 
 // Import components estilizados
-import { Container, Title } from "./styles";
+import { Container, Title, Img } from "./styles";
 
 /**
  * Parâmetros do componente
@@ -19,7 +19,7 @@ function CitiesCard(Props: IContainer) {
     <Container
       onClick={Props.onClick}
     >
-     <img src={Props.image} alt="City" />
+     <Img src={Props.image} alt="City" />
      <Title>{Props.city}</Title>
     </Container>
   );
