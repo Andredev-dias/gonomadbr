@@ -52,8 +52,20 @@ position: absolute;
 width: 100%;
 height: 90%;
 padding: 1rem;
+animation-name: goUp;
+animation-duration: 1s;
 :hover{
   cursor: pointer;
+}
+@keyframes goUp {
+from  {
+   top: 50px;
+   opacity: 0.2;
+  }
+ to {
+   top: 12px;
+   opacity: 1;
+  }
 }
 `;
 

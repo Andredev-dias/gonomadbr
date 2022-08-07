@@ -29,19 +29,19 @@ const [isOpenInfo, setIsOpenInfo] = useState(false);
       <WrapBars>
         <WrapEach>
          <PLabel>@:</PLabel>
-         <ProgressBar value="32" max="100"> 32% </ProgressBar>
+         <ProgressBar value="32" max="100"/> 
          </WrapEach>
          <WrapEach>
          <PLabel>$</PLabel>
-         <ProgressBar value="70" max="100"> 32% </ProgressBar>
+         <ProgressBar value="70" max="100"/>
          </WrapEach>
          <WrapEach>
          <PLabel>%</PLabel>
-         <ProgressBar value="45" max="100"> 32% </ProgressBar>
+         <ProgressBar value="45" max="100"/> 
          </WrapEach>
          <WrapEach>
          <PLabel>#</PLabel>
-         <ProgressBar value="91" max="100"> 32% </ProgressBar>
+         <ProgressBar value="91" max="100"/>
          </WrapEach>
          <WrapEach>
           <LifeCostLabel>LifeCost</LifeCostLabel>
