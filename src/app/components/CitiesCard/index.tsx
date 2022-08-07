@@ -1,11 +1,11 @@
 // Import módulos
-import React from "react";
+import React, { useState } from "react";
 
 // Import interfaces
 import { IContainer } from "./interfaces";
 
 // Import components estilizados
-import { Container, Title, Img } from "./styles";
+import { Container, Title, Img, ProgressBar, WrapBars, PLabel, WrapEach,PLifeCostLabel, LifeCostLabel } from "./styles";
 
 /**
  * Parâmetros do componente
@@ -15,12 +15,39 @@ import { Container, Title, Img } from "./styles";
  * 
  */
 function CitiesCard(Props: IContainer) {
+const [isOpenInfo, setIsOpenInfo] = useState(false);
+
   return (
     <Container
       onClick={Props.onClick}
+      onMouseEnter={()=> {setIsOpenInfo(true)}}
+      onMouseLeave={()=> {setIsOpenInfo(false)}}
     >
      <Img src={Props.image} alt="City" />
      <Title>{Props.city}</Title>
+     {isOpenInfo && 
+      <WrapBars>
+        <WrapEach>
+         <PLabel>@:</PLabel>
+         <ProgressBar value="32" max="100"> 32% </ProgressBar>
+         </WrapEach>
+         <WrapEach>
+         <PLabel>$</PLabel>
+         <ProgressBar value="70" max="100"> 32% </ProgressBar>
+         </WrapEach>
+         <WrapEach>
+         <PLabel>%</PLabel>
+         <ProgressBar value="45" max="100"> 32% </ProgressBar>
+         </WrapEach>
+         <WrapEach>
+         <PLabel>#</PLabel>
+         <ProgressBar value="91" max="100"> 32% </ProgressBar>
+         </WrapEach>
+         <WrapEach>
+          <LifeCostLabel>LifeCost</LifeCostLabel>
+          <PLifeCostLabel>$ 1.450,34</PLifeCostLabel>
+         </WrapEach>
+     </WrapBars>}
     </Container>
   );
 }
