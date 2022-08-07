@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 // Import Internos
 import MainHeader from "../../components/MainHeader"
@@ -9,7 +9,7 @@ import Curitiba from "../../../assets/cities/curitiba.jpg";
 import Recife from "../../../assets/cities/recife.jpg";
 import Maceio from "../../../assets/cities/maceio.jpg";
 import RioBranco from "../../../assets/cities/riobranco.jpg";
-import Macapa from "../../../assets/cities/macapa.jpg";
+// import Macapa from "../../../assets/cities/macapa.jpg";
 import Manaus from "../../../assets/cities/manaus.jpg";
 import Fortaleza from "../../../assets/cities/fortaleza.jpg";
 import Brasilia from "../../../assets/cities/brasilia.jpg";
@@ -32,10 +32,13 @@ import SP from "../../../assets/cities/sp.jpg";
 import Aracaju from "../../../assets/cities/aracaju.jpg";
 import Palmas from "../../../assets/cities/palmas.jpg";
 
+import helper from "../../../services/helper";
+import {LanguageContext} from '../../context/LanguageContext';
 // Import do styled components
 import {Container, FilterMenu, WrapPrincipal, PrincipalSection, InputSearch, BtnFilter} from './styles';
 
 const Main = () => {
+    const { language, setLanguage } = useContext(LanguageContext);
     return(
         <Container>
             <MainHeader/>
@@ -45,13 +48,15 @@ const Main = () => {
                 <BtnFilter>State</BtnFilter>
                 <BtnFilter>Pricing</BtnFilter>
                 <BtnFilter>Climate</BtnFilter>
+                <button onClick={() => setLanguage("pt-BR")}>portugues</button>
+                <button onClick={() => setLanguage("en-US")}>ingreis</button>
             </FilterMenu>
             <WrapPrincipal>
             <PrincipalSection>
-                <CitiesCard city="Rio Branco - AC" image={RioBranco}/>
-                <CitiesCard city="Maceió - AL" image={Maceio}/>
-                <CitiesCard city="Macapá - AP" image={Macapa}/>
-                <CitiesCard city="Manaus - AM" image={Manaus}/>
+                {/* <CitiesCard city="Rio Branco - AC" image={RioBranco}/>
+                <CitiesCard city="Maceió - AL" image={Maceio}/> */}
+                <CitiesCard city="Macapá - AP" image="https://firebasestorage.googleapis.com/v0/b/nomadbr-51538.appspot.com/o/imagem_materia.jpeg?alt=media&token=d50b97dc-6f2d-44ab-83bc-aa417a84288d"/>
+                {/* <CitiesCard city="Manaus - AM" image={Manaus}/>
                 <CitiesCard city="Fortaleza - CE" image={Fortaleza}/>
                 <CitiesCard city="Brasília - DF" image={Brasilia}/>
                 <CitiesCard city="Vitória - ES" image={Vitoria}/>
@@ -73,7 +78,7 @@ const Main = () => {
                 <CitiesCard city="Florianópolis - SC" image={Floripa}/>
                 <CitiesCard city="São Paulo - SP" image={SP}/>
                 <CitiesCard city="Aracaju - SE" image={Aracaju}/>
-                <CitiesCard city="Palmas - TO" image={Palmas}/>
+                <CitiesCard city="Palmas - TO" image={Palmas}/> */}
             </PrincipalSection>
             </WrapPrincipal>
       

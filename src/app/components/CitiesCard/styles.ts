@@ -4,6 +4,11 @@ import styled, {css} from "styled-components";
 // Import interfaces
 import { IContainer } from "./interfaces";
 
+interface IBar{
+  valor: number;
+}
+
+
 export const Container = styled.button`
   display: flex;
   align-items: center;
@@ -46,12 +51,12 @@ export const Img = styled.img`
 export const WrapBars = styled.div`
 display: flex;
 flex-direction: column;
-justify-content: left;
+justify-content: space-between;
 align-items: left;
 position: absolute;
 width: 100%;
 height: 90%;
-padding: 1rem;
+padding: 2.5rem 1rem 1rem 1rem;
 animation-name: goUp;
 animation-duration: 1s;
 :hover{
@@ -82,11 +87,21 @@ font-size:1.5rem ;
 width: 50px;
 `;
 
-export const ProgressBar = styled.progress`
+export const ProgressBar = styled.progress<IBar>`
 width: 10vw;
-height: 50px;
-accent-color:  var(--background);
+height: 25px;
+appearance: none;
+border-radius: 999px;
+::-webkit-progress-bar {
+  background-color: var(--background);
+  border-radius: 999px;
+}
+::-webkit-progress-value {
+  border-radius: 999px;
+  background-color: ${({valor}) => valor <= 30 ? "red" : valor <= 70 ? "yellow" : "green" };
+}
 `;
+
 
 export const footerCardStyle = css`
 color: var(--white);
