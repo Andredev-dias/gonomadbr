@@ -23,25 +23,26 @@ const [isOpenInfo, setIsOpenInfo] = useState(false);
       onMouseEnter={()=> {setIsOpenInfo(true)}}
       onMouseLeave={()=> {setIsOpenInfo(false)}}
     >
-     <Img src={Props.image} alt="City" />
+     <Img 
+     src={Props.image} alt="City" />
      <Title>{Props.city}</Title>
      {isOpenInfo && 
       <WrapBars>
         <WrapEach>
-         <PLabel>@:</PLabel>
-         <ProgressBar value="32" max="100"/> 
+         <PLabel>@</PLabel>
+         <ProgressBar value="28" max="100" valor={28}/> 
          </WrapEach>
          <WrapEach>
          <PLabel>$</PLabel>
-         <ProgressBar value="70" max="100"/>
+         <ProgressBar value="46" max="100" valor={46}/>
          </WrapEach>
          <WrapEach>
          <PLabel>%</PLabel>
-         <ProgressBar value="45" max="100"/> 
+         <ProgressBar value="18" max="100" valor={18}/> 
          </WrapEach>
          <WrapEach>
          <PLabel>#</PLabel>
-         <ProgressBar value="91" max="100"/>
+         <ProgressBar value="91" max="100" valor={91}/>
          </WrapEach>
          <WrapEach>
           <LifeCostLabel>LifeCost</LifeCostLabel>
