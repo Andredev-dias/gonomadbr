@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { IContainer } from "./interfaces";
 
 // Import components estilizados
-import { Container, Title, Img, ProgressBar, WrapBars,IconBarsWifi, PLabel,WrapFooterCard,IconBarsHomeSecurity,IconBarsTrans, WrapEach,PLifeCostLabel,IconBarsSatisfaction, LifeCostLabel, IconBarsCulture } from "./styles";
+import { Container, Title, Img, ProgressBar, WrapBars,IconBarsWifi, PLabel, WrapFooterCard, IconBarsHomeSecurity, IconBarsTrans, WrapEach, PLifeCostLabel, IconBarsSatisfaction, LifeCostLabel, IconBarsCulture } from "./styles";
 
 
 /**

@@ -83,8 +83,7 @@ export const BtnFilterNotClicked = css`
     :hover{
         cursor: pointer;
         opacity: 1;
-        /* box-shadow: 1px 1px 5px 1px #8be9fd ; */
-        border: 2px solid #8be9fd;
+        border: 1px solid #8be9fd;
     }
 `;
 
@@ -95,7 +94,7 @@ export const BtnFilterClicked = css`
     color:#f8f8f2;
     font-size: 1rem;
     border-radius: 5px;
-    border: 1px solid #8be9fd;
+    border: none;
     background-color: #44475a;
     text-align: center;
     box-shadow: 1px 1px 5px 1px #8be9fd ;
