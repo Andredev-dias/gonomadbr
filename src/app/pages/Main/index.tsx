@@ -174,10 +174,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
       borderRadius: 20 / 2,
     },
   }));
-console.log(isCity, "city")
-console.log(isState, "estado")
-console.log(isPricing, "contas")
-console.log(isClimate, "clima")
+
 
     return(
         <Container>

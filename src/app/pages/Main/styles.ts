@@ -24,7 +24,7 @@ export const FilterMenu = styled.main`
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 50px;
+    height: 55px;
     background: ${props => props.theme.lightBackground};
     position: sticky;
     top: 0;
@@ -83,7 +83,7 @@ export const BtnFilterNotClicked = css`
     :hover{
         cursor: pointer;
         opacity: 1;
-        box-shadow: 1px 1px 5px 1px #8be9fd ;
+        /* box-shadow: 1px 1px 5px 1px #8be9fd ; */
         border: 2px solid #8be9fd;
     }
 `;
