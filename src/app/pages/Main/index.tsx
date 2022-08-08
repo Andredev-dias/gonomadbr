@@ -44,7 +44,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch, { SwitchProps } from '@mui/material/Switch';
 
 // Import do styled components
-import {Container, FilterMenu, WrapPrincipal, PrincipalSection, InputSearch,WrapPopover, BtnFilter, BtnFlag} from './styles';
+import {Container, FilterMenu, WrapPrincipal, PrincipalSection, InputSearch,WrapPopover, BtnFilterState, BtnFilterPricing, BtnFilterClimate, BtnFilterCity, BtnFlag, LeftMenuSection, RightMenuSection} from './styles';
 
 const Main = () => {
     // Contexto
@@ -54,6 +54,41 @@ const Main = () => {
     const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);
     const open = Boolean(anchorEl);
     const id = open ? "simple-popover" : undefined;
+    // Sort State
+    const [isCity, setIsCity] = useState<boolean>(false);
+    const [isState, setIsState] = useState<boolean>(false);
+    const [isPricing, setIsPricing] = useState<boolean>(false);
+    const [isClimate, setIsClimate] = useState<boolean>(false);
+
+    // funcoes para atividades com botoes
+      const handleCity = () => {
+          setIsCity(true);
+          setIsState(false);
+          setIsPricing(false);
+          setIsClimate(false);
+      };
+
+      const handleState = () => {
+        setIsCity(false);
+        setIsState(true);
+        setIsPricing(false);
+        setIsClimate(false);
+      };
+
+      const handlePricing = () => {
+        setIsCity(false);
+        setIsState(false);
+        setIsPricing(true);
+        setIsClimate(false);
+      };
+
+      const handleClimate = () => {
+        setIsCity(false);
+        setIsState(false);
+        setIsPricing(false);
+        setIsClimate(true);
+      };
+          
 
     // Se a flag for nula coloca bandeira br
     const [flag, setFlag] = useState<any>(
@@ -102,21 +137,21 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
       padding: 0,
       transform: 'translateX(6px)',
       '&.Mui-checked': {
-        color: '#fff',
+        color: '#8be9fd',
         transform: 'translateX(22px)',
         '& .MuiSwitch-thumb:before': {
           backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20"><path fill="${encodeURIComponent(
-            '#fff',
+            '#8be9fd',
           )}" d="M4.2 2.5l-.7 1.8-1.8.7 1.8.7.7 1.8.6-1.8L6.7 5l-1.9-.7-.6-1.8zm15 8.3a6.7 6.7 0 11-6.6-6.6 5.8 5.8 0 006.6 6.6z"/></svg>')`,
         },
         '& + .MuiSwitch-track': {
           opacity: 1,
-          backgroundColor: theme.palette.mode === 'dark' ? '#8796A5' : '#aab4be',
+          backgroundColor: theme.palette.mode === 'dark' ? '#f50a0a' : '#8be9fd',
         },
       },
     },
     '& .MuiSwitch-thumb': {
-      backgroundColor: theme.palette.mode === 'dark' ? '#003892' : '#001e3c',
+      backgroundColor: theme.palette.mode === 'dark' ? '#dbc81c' : '#282a36',
       width: 32,
       height: 32,
       '&:before': {
@@ -129,26 +164,33 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
         backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20"><path fill="${encodeURIComponent(
-          '#fff',
+          '#d5eb10',
         )}" d="M9.305 1.667V3.75h1.389V1.667h-1.39zm-4.707 1.95l-.982.982L5.09 6.072l.982-.982-1.473-1.473zm10.802 0L13.927 5.09l.982.982 1.473-1.473-.982-.982zM10 5.139a4.872 4.872 0 00-4.862 4.86A4.872 4.872 0 0010 14.862 4.872 4.872 0 0014.86 10 4.872 4.872 0 0010 5.139zm0 1.389A3.462 3.462 0 0113.471 10a3.462 3.462 0 01-3.473 3.472A3.462 3.462 0 016.527 10 3.462 3.462 0 0110 6.528zM1.665 9.305v1.39h2.083v-1.39H1.666zm14.583 0v1.39h2.084v-1.39h-2.084zM5.09 13.928L3.616 15.4l.982.982 1.473-1.473-.982-.982zm9.82 0l-.982.982 1.473 1.473.982-.982-1.473-1.473zM9.305 16.25v2.083h1.389V16.25h-1.39z"/></svg>')`,
       },
     },
     '& .MuiSwitch-track': {
       opacity: 1,
-      backgroundColor: theme.palette.mode === 'dark' ? '#8796A5' : '#aab4be',
+      backgroundColor: theme.palette.mode === 'dark' ? '#796c6c' : '#f1f0e9e2',
       borderRadius: 20 / 2,
     },
   }));
+console.log(isCity, "city")
+console.log(isState, "estado")
+console.log(isPricing, "contas")
+console.log(isClimate, "clima")
 
     return(
         <Container>
             <MainHeader/>
             <FilterMenu>
+              <LeftMenuSection>
                 <InputSearch placeholder="Type your search" type="text" />
-                <BtnFilter>City</BtnFilter>
-                <BtnFilter>State</BtnFilter>
-                <BtnFilter>Pricing</BtnFilter>
-                <BtnFilter>Climate</BtnFilter>
+                <BtnFilterCity onClick={handleCity} isCity={isCity}>City</BtnFilterCity>
+                <BtnFilterState onClick={handleState} isState={isState}>State</BtnFilterState>
+                <BtnFilterPricing onClick={handlePricing} isPricing={isPricing}>Pricing</BtnFilterPricing>
+                <BtnFilterClimate onClick={handleClimate} isClimate={isClimate}>Climate</BtnFilterClimate>
+                </LeftMenuSection>
+                <RightMenuSection>
                 <BtnFlag aria-describedby={id} onClick={handleClick}>{flag}</BtnFlag>
                 <Popover
                     id={id}
@@ -175,13 +217,14 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
                         label="Color Theme"
                     />
                 </FormGroup>
+                </RightMenuSection>
             </FilterMenu>
             <WrapPrincipal>
             <PrincipalSection>
-                {/* <CitiesCard city="Rio Branco - AC" image={RioBranco}/>
-                <CitiesCard city="Maceió - AL" image={Maceio}/> */}
+                <CitiesCard city="Rio Branco - AC" image={RioBranco}/>
+                <CitiesCard city="Maceió - AL" image={Maceio}/>
                 <CitiesCard city="Macapá - AP" image="https://firebasestorage.googleapis.com/v0/b/nomadbr-51538.appspot.com/o/imagem_materia.jpeg?alt=media&token=d50b97dc-6f2d-44ab-83bc-aa417a84288d"/>
-                {/* <CitiesCard city="Manaus - AM" image={Manaus}/>
+                <CitiesCard city="Manaus - AM" image={Manaus}/>
                 <CitiesCard city="Fortaleza - CE" image={Fortaleza}/>
                 <CitiesCard city="Brasília - DF" image={Brasilia}/>
                 <CitiesCard city="Vitória - ES" image={Vitoria}/>
@@ -203,7 +246,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
                 <CitiesCard city="Florianópolis - SC" image={Floripa}/>
                 <CitiesCard city="São Paulo - SP" image={SP}/>
                 <CitiesCard city="Aracaju - SE" image={Aracaju}/>
-                <CitiesCard city="Palmas - TO" image={Palmas}/> */}
+                <CitiesCard city="Palmas - TO" image={Palmas}/>
             </PrincipalSection>
             </WrapPrincipal>
         </Container>

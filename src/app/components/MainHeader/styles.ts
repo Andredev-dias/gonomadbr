@@ -6,7 +6,7 @@ const IconLoginCSS = css`
   width: 10rem;
   height: 10rem;
   color: ${props => props.theme.primary};
-  box-shadow: 2px 2px var(--background);
+  /* box-shadow: 2px 2px ${props => props.theme.background}; */
 `;
 
 const IconBrazilCSS = css`
@@ -52,7 +52,7 @@ flex-direction: row;
 align-items: center;
 justify-content: space-between;
 border-radius: 20px;
-border: 1px solid var(--white);
+border: 1px solid ${props => props.theme.words};
 background-color: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
 backdrop-filter: blur(10px);
 -webkit-backdrop-filter: blur(10px);
@@ -64,17 +64,17 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content:center;
-background-color: var(--background);
+background-color: ${props => props.theme.background};
 width:280px;
 height:400px;
 border-radius: 20px;
-color: white;
+color: ${props => props.theme.words};
 border: none;
 gap: 10px;
 `;
 
 export const NoRegistration = styled.h5`
-color: var(--cyan);
+color: ${props => props.theme.primary};
 opacity: 0.7;
 :hover{
     cursor: pointer;
@@ -86,14 +86,14 @@ export const Input = styled.input`
 padding: 0.5vw;
 width: 200px;
 height: 50px;
-color:var(--white);
+color:${props => props.theme.words};
 font-size: 1.2rem;
 border-radius: 999px;
-border: 2px solid var(--cyan);
-background-color: var(--light-background);
+border: 2px solid ${props => props.theme.primary};
+background-color: ${props => props.theme.lightBackground};
 text-align: center;
 ::placeholder{
- color: var(--cyan);
+ color: ${props => props.theme.primary};
 }
 `;
 
@@ -110,16 +110,16 @@ flex-direction: row;
 align-items: left;
 justify-content:left;
 gap: 10px;
-color: var(--white);
+color: ${props => props.theme.words};
 `;
 
 export const TextHeader = styled.h1`
 font-size: 6rem;
-text-shadow: 2px 2px var(--background);
+text-shadow: 2px 2px ${props => props.theme.background};
 `;
 
 export const SubTitle = styled.p`
 font-size: 1.6rem;
-color: var(--cyan);
-text-shadow: 2px 2px var(--background);
+color: ${props => props.theme.primary};
+text-shadow: 2px 2px ${props => props.theme.background};
 `;
