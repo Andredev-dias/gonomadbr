@@ -171,8 +171,8 @@ export const styleModal = {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 'auto',
-    bgcolor: 'background.paper',
+    bgcolor: '#44475a',
     boxShadow: 24,
-    p: 4,
+    p: 1,
     borderRadius: '10px'
   };
