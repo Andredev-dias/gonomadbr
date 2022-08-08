@@ -5,7 +5,8 @@ import React, { useState } from "react";
 import { IContainer } from "./interfaces";
 
 // Import components estilizados
-import { Container, Title, Img, ProgressBar, WrapBars, PLabel, WrapEach,PLifeCostLabel, LifeCostLabel } from "./styles";
+import { Container, Title, Img, ProgressBar, WrapBars,IconBarsWifi, PLabel,WrapFooterCard,IconBarsHomeSecurity,IconBarsTrans, WrapEach,PLifeCostLabel,IconBarsSatisfaction, LifeCostLabel, IconBarsCulture } from "./styles";
+
 
 /**
  * Parâmetros do componente
@@ -29,25 +30,31 @@ const [isOpenInfo, setIsOpenInfo] = useState(false);
      {isOpenInfo && 
       <WrapBars>
         <WrapEach>
-         <PLabel>@</PLabel>
-         <ProgressBar value="28" max="100" valor={28}/> 
+         <PLabel><IconBarsSatisfaction/></PLabel>
+         <ProgressBar value="28" max="100" valor={28} title="Satisfacao"/> 
          </WrapEach>
          <WrapEach>
-         <PLabel>$</PLabel>
-         <ProgressBar value="46" max="100" valor={46}/>
+         <PLabel><IconBarsHomeSecurity/></PLabel>
+         <ProgressBar value="46" max="100" valor={46} title="Seguranca"/>
          </WrapEach>
          <WrapEach>
-         <PLabel>%</PLabel>
-         <ProgressBar value="18" max="100" valor={18}/> 
+         <PLabel><IconBarsTrans/></PLabel>
+         <ProgressBar value="18" max="100" valor={18} title="Transporte"/> 
          </WrapEach>
          <WrapEach>
-         <PLabel>#</PLabel>
-         <ProgressBar value="91" max="100" valor={91}/>
+         <PLabel><IconBarsCulture/></PLabel>
+         <ProgressBar value="91" max="100" valor={91} title="Cultura"/>
          </WrapEach>
-         <WrapEach>
-          <LifeCostLabel>LifeCost</LifeCostLabel>
+         <WrapFooterCard>
+         <WrapEach title="Conexao com Wi-Fi">
+          <LifeCostLabel><IconBarsWifi/></LifeCostLabel>
+          <PLifeCostLabel>45 fps</PLifeCostLabel>
+         </WrapEach>
+         <WrapEach title="Custo de Vida">
+          <LifeCostLabel><IconBarsSatisfaction/></LifeCostLabel>
           <PLifeCostLabel>$ 1.450,34</PLifeCostLabel>
          </WrapEach>
+         </WrapFooterCard>
      </WrapBars>}
     </Container>
   );
