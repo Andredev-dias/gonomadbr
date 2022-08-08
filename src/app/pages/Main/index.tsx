@@ -236,10 +236,10 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
             </FilterMenu>
             <WrapPrincipal>
             <PrincipalSection>
-                {/* <CitiesCard city="Rio Branco - AC" image={RioBranco}/>
-                <CitiesCard city="Maceió - AL" image={Maceio}/> */}
+                <CitiesCard city="Rio Branco - AC" image={RioBranco}/>
+                <CitiesCard city="Maceió - AL" image={Maceio}/>
                 <CitiesCard onClick={handleOpenModal} city="Macapá - AP" image="https://firebasestorage.googleapis.com/v0/b/nomadbr-51538.appspot.com/o/imagem_materia.jpeg?alt=media&token=d50b97dc-6f2d-44ab-83bc-aa417a84288d"/>
-                {/* <CitiesCard city="Manaus - AM" image={Manaus}/>
+                <CitiesCard city="Manaus - AM" image={Manaus}/>
                 <CitiesCard city="Fortaleza - CE" image={Fortaleza}/>
                 <CitiesCard city="Brasília - DF" image={Brasilia}/>
                 <CitiesCard city="Vitória - ES" image={Vitoria}/>
@@ -261,7 +261,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
                 <CitiesCard city="Florianópolis - SC" image={Floripa}/>
                 <CitiesCard city="São Paulo - SP" image={SP}/>
                 <CitiesCard city="Aracaju - SE" image={Aracaju}/>
-                <CitiesCard city="Palmas - TO" image={Palmas}/> */}
+                <CitiesCard city="Palmas - TO" image={Palmas}/>
             </PrincipalSection>
             </WrapPrincipal>
         </Container>
