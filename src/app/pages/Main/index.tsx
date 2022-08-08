@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 // Import Internos
 import MainHeader from "../../components/MainHeader"
 import CitiesCard from "../../components/CitiesCard"
+import ModalDataFromCards from "../../components/ModalDataFromCards"
 
 // Import das Imagens
 import Curitiba from "../../../assets/cities/curitiba.jpg";
@@ -42,9 +43,12 @@ import { styled } from '@mui/material/styles';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch, { SwitchProps } from '@mui/material/Switch';
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+
 
 // Import do styled components
-import {Container, FilterMenu, WrapPrincipal, PrincipalSection, InputSearch,WrapPopover, BtnFilterState, BtnFilterPricing, BtnFilterClimate, BtnFilterCity, BtnFlag, LeftMenuSection, RightMenuSection} from './styles';
+import {Container, FilterMenu, WrapPrincipal, PrincipalSection, InputSearch,WrapPopover, BtnFilterState, BtnFilterPricing, BtnFilterClimate, BtnFilterCity, BtnFlag, LeftMenuSection, RightMenuSection, styleModal} from './styles';
 
 const Main = () => {
     // Contexto
@@ -59,6 +63,7 @@ const Main = () => {
     const [isState, setIsState] = useState<boolean>(false);
     const [isPricing, setIsPricing] = useState<boolean>(false);
     const [isClimate, setIsClimate] = useState<boolean>(false);
+    const [openModal, setOpenModal] = useState<boolean>(false);
 
     // funcoes para atividades com botoes
       const handleCity = () => {
@@ -174,9 +179,22 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
       borderRadius: 20 / 2,
     },
   }));
-
+  
+  const handleOpenModal = () => setOpenModal(true);
+  const handleCloseModal = () => setOpenModal(false);
 
     return(
+      <>
+      <Modal
+      open={openModal}
+      onClose={handleCloseModal}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+    >
+      <Box sx={styleModal}>
+          <ModalDataFromCards/>
+      </Box>
+    </Modal>
         <Container>
             <MainHeader/>
             <FilterMenu>
@@ -220,7 +238,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
             <PrincipalSection>
                 {/* <CitiesCard city="Rio Branco - AC" image={RioBranco}/>
                 <CitiesCard city="Maceió - AL" image={Maceio}/> */}
-                <CitiesCard city="Macapá - AP" image="https://firebasestorage.googleapis.com/v0/b/nomadbr-51538.appspot.com/o/imagem_materia.jpeg?alt=media&token=d50b97dc-6f2d-44ab-83bc-aa417a84288d"/>
+                <CitiesCard onClick={handleOpenModal} city="Macapá - AP" image="https://firebasestorage.googleapis.com/v0/b/nomadbr-51538.appspot.com/o/imagem_materia.jpeg?alt=media&token=d50b97dc-6f2d-44ab-83bc-aa417a84288d"/>
                 {/* <CitiesCard city="Manaus - AM" image={Manaus}/>
                 <CitiesCard city="Fortaleza - CE" image={Fortaleza}/>
                 <CitiesCard city="Brasília - DF" image={Brasilia}/>
@@ -247,6 +265,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
             </PrincipalSection>
             </WrapPrincipal>
         </Container>
+        </>
     )
 };
 export default Main;

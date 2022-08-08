@@ -41,7 +41,7 @@ export const Container = styled.button`
   width: 250px;
   height: 250px;
   background: ${props => props.theme.background};
-  border-radius: 20px;
+  border-radius: 10px;
   border: none;
   overflow: hidden;
   position: relative;
