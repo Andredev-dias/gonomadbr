@@ -32,11 +32,10 @@ import SP from "../../../assets/cities/sp.jpg";
 import Aracaju from "../../../assets/cities/aracaju.jpg";
 import Palmas from "../../../assets/cities/palmas.jpg";
 
+// Imports Externos | Contexto | Services
 import helper from "../../../services/helper";
 import {LanguageContext} from '../../context/LanguageContext';
 import { Br, Us} from "react-flags-select";
-// Import do styled components
-import {Container, FilterMenu, WrapPrincipal, PrincipalSection, InputSearch,WrapPopover, BtnFilter, BtnFlag} from './styles';
 import  { ThemeContext } from 'styled-components';
 import {Popover} from "@mui/material";
 import { styled } from '@mui/material/styles';
@@ -44,35 +43,37 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch, { SwitchProps } from '@mui/material/Switch';
 
+// Import do styled components
+import {Container, FilterMenu, WrapPrincipal, PrincipalSection, InputSearch,WrapPopover, BtnFilter, BtnFlag} from './styles';
+
 const Main = () => {
+    // Contexto
     const { language, setLanguage } = useContext(LanguageContext);
     const themeContext = useContext(ThemeContext);
-
     // PopOver
     const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);
     const open = Boolean(anchorEl);
     const id = open ? "simple-popover" : undefined;
 
-    
     // Se a flag for nula coloca bandeira br
     const [flag, setFlag] = useState<any>(
         localStorage.getItem("language") === "en-US" ? (
             <Us className="flag"/>
             )  : (
-                <Br className="flag"/>
-                ),
-                );
-
-                const handleClose = () => {
-                    setAnchorEl(null);
-                  };
-                
+            <Br className="flag"/>
+            ),
+    );
+   // fechar o popover
+   const handleClose = () => {
+      setAnchorEl(null);
+   };
+  
+   // abrir o popover
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
-    console.log(anchorEl)
   };
 
-  
+  // escolhendo ingles
   const handleEN = () => {
     if (flag.type.name !== "SvgUs") {
       setFlag(<Us className="flag"/>);
@@ -81,6 +82,7 @@ const Main = () => {
     }
   };
 
+  // escolhendo portugues
   const handlePT = () => {
     if (flag.type.name !== "SvgBr") {
       setFlag(<Br className="flag"/>);
@@ -167,14 +169,12 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
                      <BtnFlag onClick={handleEN}><Us className="flag"/></BtnFlag>
                      </WrapPopover>
                 </Popover>
-                <div>
                 <FormGroup>
                     <FormControlLabel
                         control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
                         label="Color Theme"
                     />
                 </FormGroup>
-                </div>
             </FilterMenu>
             <WrapPrincipal>
             <PrincipalSection>
@@ -206,7 +206,6 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
                 <CitiesCard city="Palmas - TO" image={Palmas}/> */}
             </PrincipalSection>
             </WrapPrincipal>
-      
         </Container>
     )
 };

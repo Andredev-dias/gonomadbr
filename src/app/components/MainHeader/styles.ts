@@ -35,6 +35,11 @@ border-radius: 10px;
 overflow: hidden;
 `;
 
+export const BackgroundImage = styled.img`
+width: 100%;
+height: 100%;
+`;
+
 export const Section = styled.div`
 position: absolute;
 top: 4vh;

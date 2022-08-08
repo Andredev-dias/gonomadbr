@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import {Container, Section, LeftSection, RightSection, IconBrazil, TitleHeader, TextHeader, SubTitle, Input, IconLogin, NoRegistration} from './styles';
+import {Container, Section, LeftSection, RightSection, IconBrazil, TitleHeader, BackgroundImage ,TextHeader, SubTitle, Input, IconLogin, NoRegistration} from './styles';
 import ImgBackgroundHeader from "../../../assets/back.jpg";
 import helper from "../../../services/helper";
 import {LanguageContext} from '../../context/LanguageContext';
@@ -8,7 +8,7 @@ const MainHeader = () => {
   const { language } = useContext(LanguageContext);
   return(
         <Container>
-         <img width="100%"  height="200%" src={ImgBackgroundHeader} alt="Header" />
+         <BackgroundImage src={ImgBackgroundHeader} alt="Header" />
          <Section>
          <LeftSection>
             <TitleHeader>
