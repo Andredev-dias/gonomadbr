@@ -15,13 +15,13 @@ const MainHeader = () => {
               <IconBrazil/>
               <TextHeader>{helper.getText("banner", language)}</TextHeader>
               </TitleHeader>
-            <SubTitle>Join Brazil community of remote workers living and traveling around the country</SubTitle>
+            <SubTitle>{helper.getText("subtitle", language)}</SubTitle>
          </LeftSection>
          <RightSection>
           <IconLogin/>
-           <Input placeholder="Type your name" type="text"></Input>
+           <Input placeholder={helper.getText("typeYourName", language)} type="text"></Input>
            <Input placeholder="**********" type="password"></Input>
-           <NoRegistration>Not registered</NoRegistration>
+           <NoRegistration>{helper.getText("notRegistered", language)}</NoRegistration>
          </RightSection>
          </Section>
         </Container>

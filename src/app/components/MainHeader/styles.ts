@@ -5,14 +5,14 @@ import {VscAccount} from "react-icons/vsc";
 const IconLoginCSS = css`
   width: 10rem;
   height: 10rem;
-  color: var(--cyan);
+  color: ${props => props.theme.primary};
   box-shadow: 2px 2px var(--background);
 `;
 
 const IconBrazilCSS = css`
   width: 6rem;
   height: 6rem;
-  color: var(--white);
+  color: ${props => props.theme.words};
   `;
 
 export const IconLogin = styled(VscAccount)`

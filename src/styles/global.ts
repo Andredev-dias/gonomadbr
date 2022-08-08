@@ -19,12 +19,5 @@ body, header, code {
   font-family: "Co Text", sans-serif;
 }
 
-:root {
-  --background: #282a36;
-  --light-background: #44475a;
-  --white: #f8f8f2;
-  --cyan:#8be9fd;
-}
 `;
-
 export default GlobalStyle;

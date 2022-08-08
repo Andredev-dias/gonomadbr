@@ -3,7 +3,12 @@ import styled from "styled-components";
 export const Container = styled.div`
 width: 99vw;
 height: auto;
-background-color: var(--background);
+background-color: ${props => props.theme.background};
+.flag{
+    width: 50px;
+    height: 50px;
+}
+
 `;
 
 export const FilterMenu = styled.main`
@@ -77,3 +82,30 @@ padding: 2vw;
 z-index: -2;
 `;
 
+export const BtnFlag = styled.button`
+width:auto;
+height: auto;
+padding: 0;
+border: none;
+background: none;
+:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+    transition: all 200ms ease-in-out;
+}
+.flag{
+    width: 50px;
+    height: 50px;
+}
+`;
+
+export const WrapPopover = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+gap: 15px;
+background-color: var(--background);
+border: none;
+padding: 15px;
+`;
