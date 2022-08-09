@@ -1,17 +1,24 @@
 // Import mÃ³dulos
 import styled, {css} from "styled-components";
  import {FcCurrencyExchange, FcGraduationCap, FcShipped, FcHome, FcWiFiLogo} from "react-icons/fc";
+ import {TiWeatherPartlySunny} from "react-icons/ti"
 // Import interfaces
 import { IContainer } from "./interfaces";
 
 interface IBar{
-  valor: number;
+  valor?: number;
 }
 
 const IconBarsCSS = css`
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   `;
+
+const IconBarsCSS1 = css`
+width: 5rem;
+height: 5rem;
+color: ${props => props.theme.words};
+`;
 
 export const IconBarsSatisfaction = styled(FcCurrencyExchange)`
 ${IconBarsCSS};
@@ -32,6 +39,13 @@ ${IconBarsCSS};
 export const IconBarsWifi = styled(FcWiFiLogo)`
 ${IconBarsCSS};
 `;
+export const IconWeather = styled(TiWeatherPartlySunny)`
+${IconBarsCSS};
+`;
+
+export const IconWeatherFirst = styled(TiWeatherPartlySunny)`
+${IconBarsCSS1};
+`;
 
 export const Container = styled.button`
   display: flex;
@@ -41,7 +55,7 @@ export const Container = styled.button`
   width: 250px;
   height: 250px;
   background: ${props => props.theme.background};
-  border-radius: 20px;
+  border-radius: 10px;
   border: none;
   overflow: hidden;
   position: relative;
@@ -64,6 +78,9 @@ export const Title = styled.h2<IContainer>`
     width: 100%;
     height: auto;
     padding: 5px;
+    text-shadow: 2px 2px ${props => props.theme.background};
+    font-size: 1.5rem;
+    transition: all 1s ease-in-out;
 `;
 
 export const Img = styled.img`
@@ -130,19 +147,19 @@ export const ProgressBar = styled.progress<IBar>`
     appearance: none;
     border-radius: 999px;
     ::-webkit-progress-bar {
-      background-color: ${props => props.theme.lightBackground};
+      background-color: ${props => props.theme.word};
       border-radius: 999px;
     }
     ::-webkit-progress-value {
       border-radius: 999px;
-      background-color: ${({valor}) => valor <= 30 ? "#800000" : valor <= 70 ? "#cc9900" : "#264d00" };
+      background-color: ${({valor}) => valor! <= 30 ? "#800000" : valor! <= 70 ? "#cc9900" : "#264d00" };
     }
 `;
 
 
 export const footerCardStyle = css`
     color: ${props => props.theme.words};
-    font-size: 1rem;
+    font-size: 0.7rem;
 `;
 
 export const LifeCostLabel = styled.h5`
@@ -152,4 +169,31 @@ color:${props => props.theme.primary} ;
 
 export const PLifeCostLabel = styled.p`
 ${footerCardStyle}
+`;
+
+export const WrapTemp = styled.h1`
+display: flex;
+flex-direction: column;
+position: absolute;
+top: 10%;
+left: 10%;
+`;
+
+export const Temp = styled.h1`
+color: ${props => props.theme.words};
+font-size: 2.5rem;
+text-shadow: 2px 2px ${props => props.theme.background};
+text-align: left;
+margin-top: 2vh;
+`;
+
+export const TitleFirst = styled.h2<IContainer>`
+    position: absolute;
+    top: 20px;
+    left: 100px;
+    color: ${props => props.theme.words};
+    width: 100px;
+    height: auto;
+    font-size: 1.5rem;
+    text-shadow: 2px 2px ${props => props.theme.background};
 `;

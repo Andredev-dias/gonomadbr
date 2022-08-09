@@ -1,8 +1,8 @@
 import styled, {css} from "styled-components";
 
 interface IBtnFilter {
-    isCity?: boolean;
-    isState?: boolean;
+    isTrans?: boolean;
+    isSec?: boolean;
     isPricing?: boolean;
     isClimate?: boolean;
 }
@@ -83,8 +83,7 @@ export const BtnFilterNotClicked = css`
     :hover{
         cursor: pointer;
         opacity: 1;
-        /* box-shadow: 1px 1px 5px 1px #8be9fd ; */
-        border: 2px solid #8be9fd;
+        border: 1px solid #8be9fd;
     }
 `;
 
@@ -95,18 +94,18 @@ export const BtnFilterClicked = css`
     color:#f8f8f2;
     font-size: 1rem;
     border-radius: 5px;
-    border: 1px solid #8be9fd;
+    border: none;
     background-color: #44475a;
     text-align: center;
     box-shadow: 1px 1px 5px 1px #8be9fd ;
 `;
 
 export const BtnFilterCity = styled.button<IBtnFilter>`
-    ${({ isCity }) => (isCity ? `${BtnFilterClicked}` : `${BtnFilterNotClicked}`)}
+    ${({ isTrans }) => (isTrans ? `${BtnFilterClicked}` : `${BtnFilterNotClicked}`)}
 `;
 
 export const BtnFilterState = styled.button<IBtnFilter>`
-    ${({ isState }) => (isState ? `${BtnFilterClicked}` : `${BtnFilterNotClicked}`)}
+    ${({ isSec }) => (isSec ? `${BtnFilterClicked}` : `${BtnFilterNotClicked}`)}
 `;
 
 export const BtnFilterPricing = styled.button<IBtnFilter>`
@@ -164,3 +163,15 @@ export const WrapPopover = styled.div`
     border: none;
     padding: 15px;
 `;
+
+export const styleModal = {
+    position: 'absolute' as 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 'auto',
+    bgcolor: '#44475a',
+    boxShadow: 24,
+    p: 1,
+    borderRadius: '10px'
+  };
