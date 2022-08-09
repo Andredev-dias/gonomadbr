@@ -243,7 +243,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
             </FilterMenu>
             <WrapPrincipal>
             <PrincipalSection>
-                {/* <CitiesCard 
+                <CitiesCard 
                   onClick={handleOpenModal} 
                   city="Rio Branco - AC" 
                   image={RioBranco}
@@ -270,7 +270,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
                   costUnity={localStorage.getItem("language") === "en-US" ? "US$" : "R$"}
                   temperature={localStorage.getItem("language") === "pt-BR" ? 34 : (((34 * 9) / 5) + 32)}
                   unityTemp={localStorage.getItem("language") === "en-US" ? "°F" : "°C"}
-                  /> */}
+                  />
                 <CitiesCard 
                   onClick={handleOpenModal} 
                   city="Macapá - AP" 
@@ -285,7 +285,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
                   temperature={localStorage.getItem("language") === "pt-BR" ? 16 : (((16 * 9) / 5) + 32)}
                   unityTemp={localStorage.getItem("language") === "en-US" ? "°F" : "°C"}
                   />
-                {/* <CitiesCard city="Manaus - AM" image={Manaus}/>
+                <CitiesCard city="Manaus - AM" image={Manaus}/>
                 <CitiesCard city="Fortaleza - CE" image={Fortaleza}/>
                 <CitiesCard city="Brasília - DF" image={Brasilia}/>
                 <CitiesCard city="Vitória - ES" image={Vitoria}/>
@@ -307,7 +307,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
                 <CitiesCard city="Florianópolis - SC" image={Floripa}/>
                 <CitiesCard city="São Paulo - SP" image={SP}/>
                 <CitiesCard city="Aracaju - SE" image={Aracaju}/>
-                <CitiesCard city="Palmas - TO" image={Palmas}/> */}
+                <CitiesCard city="Palmas - TO" image={Palmas}/>
             </PrincipalSection>
             </WrapPrincipal>
         </Container>
