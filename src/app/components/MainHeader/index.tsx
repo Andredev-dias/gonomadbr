@@ -3,12 +3,23 @@ import {Container, Section, LeftSection, RightSection, IconBrazil, TitleHeader, 
 import ImgBackgroundHeader from "../../../assets/back.jpg";
 import helper from "../../../services/helper";
 import {LanguageContext} from '../../context/LanguageContext';
+import ReactPlayer from 'react-player';
 
 const MainHeader = () => {
   const { language } = useContext(LanguageContext);
   return(
         <Container>
-         <BackgroundImage src={ImgBackgroundHeader} alt="Header" />
+         {/* <BackgroundImage src={ImgBackgroundHeader} alt="Header" /> */}
+         <div className='player-wrapper'>
+        <ReactPlayer
+          className='react-player'
+          url='https://www.youtube.com/watch?v=HSsqzzuGTPo'
+          width='100%'
+          height='90%'
+          volume={0.1}
+        />
+      </div>
+    
          <Section>
          <LeftSection>
             <TitleHeader>

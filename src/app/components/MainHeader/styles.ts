@@ -34,6 +34,18 @@ height: auto;
 overflow: hidden;
 position: relative;
 overflow: hidden;
+.player-wrapper {
+  position: relative;
+ width: 100vw;
+ height: 70vh;
+}
+
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scale(2);
+}
 `;
 
 export const BackgroundImage = styled.img`
@@ -43,7 +55,7 @@ height: 100%;
 
 export const Section = styled.div`
 position: absolute;
-top: 10%;
+top: 7%;
 left: 10%;
 width: 80vw;
 height:60vh;
