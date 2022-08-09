@@ -59,37 +59,37 @@ const Main = () => {
     const open = Boolean(anchorEl);
     const id = open ? "simple-popover" : undefined;
     // Sort State
-    const [isCity, setIsCity] = useState<boolean>(false);
-    const [isState, setIsState] = useState<boolean>(false);
+    const [isTrans, setIsTrans] = useState<boolean>(false);
+    const [isSec, setIsSec] = useState<boolean>(false);
     const [isPricing, setIsPricing] = useState<boolean>(false);
     const [isClimate, setIsClimate] = useState<boolean>(false);
     const [openModal, setOpenModal] = useState<boolean>(false);
 
     // funcoes para atividades com botoes
-      const handleCity = () => {
-          setIsCity(true);
-          setIsState(false);
+      const handleTrans = () => {
+          setIsTrans(true);
+          setIsSec(false);
           setIsPricing(false);
           setIsClimate(false);
       };
 
-      const handleState = () => {
-        setIsCity(false);
-        setIsState(true);
+      const handleSec = () => {
+        setIsTrans(false);
+        setIsSec(true);
         setIsPricing(false);
         setIsClimate(false);
       };
 
       const handlePricing = () => {
-        setIsCity(false);
-        setIsState(false);
+        setIsTrans(false);
+        setIsSec(false);
         setIsPricing(true);
         setIsClimate(false);
       };
 
       const handleClimate = () => {
-        setIsCity(false);
-        setIsState(false);
+        setIsTrans(false);
+        setIsSec(false);
         setIsPricing(false);
         setIsClimate(true);
       };
@@ -199,11 +199,11 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
             <MainHeader/>
             <FilterMenu>
               <LeftMenuSection>
-                <InputSearch placeholder="Type your search" type="text" />
-                <BtnFilterCity onClick={handleCity} isCity={isCity}>City</BtnFilterCity>
-                <BtnFilterState onClick={handleState} isState={isState}>State</BtnFilterState>
-                <BtnFilterPricing onClick={handlePricing} isPricing={isPricing}>Pricing</BtnFilterPricing>
-                <BtnFilterClimate onClick={handleClimate} isClimate={isClimate}>Climate</BtnFilterClimate>
+                <InputSearch placeholder={helper.getText("typeYourSearch", language)} type="text" />
+                <BtnFilterCity onClick={handleTrans} isTrans={isTrans}>{helper.getText("trans", language)}</BtnFilterCity>
+                <BtnFilterState onClick={handleSec} isSec={isSec}>{helper.getText("security", language)}</BtnFilterState>
+                <BtnFilterPricing onClick={handlePricing} isPricing={isPricing}>{helper.getText("pricing", language)}</BtnFilterPricing>
+                <BtnFilterClimate onClick={handleClimate} isClimate={isClimate}>{helper.getText("climate", language)}</BtnFilterClimate>
                 </LeftMenuSection>
                 <RightMenuSection>
                 <BtnFlag aria-describedby={id} onClick={handleClick}>{flag}</BtnFlag>
@@ -229,17 +229,56 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
                 <FormGroup>
                     <FormControlLabel
                         control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
-                        label="Color Theme"
+                        label=""
                     />
                 </FormGroup>
                 </RightMenuSection>
             </FilterMenu>
             <WrapPrincipal>
             <PrincipalSection>
-                <CitiesCard city="Rio Branco - AC" image={RioBranco}/>
-                <CitiesCard city="Maceió - AL" image={Maceio}/>
-                <CitiesCard onClick={handleOpenModal} city="Macapá - AP" image="https://firebasestorage.googleapis.com/v0/b/nomadbr-51538.appspot.com/o/imagem_materia.jpeg?alt=media&token=d50b97dc-6f2d-44ab-83bc-aa417a84288d"/>
-                <CitiesCard city="Manaus - AM" image={Manaus}/>
+                <CitiesCard 
+                  onClick={handleOpenModal} 
+                  city="Rio Branco - AC" 
+                  image={RioBranco}
+                  satisfactionValue={22}
+                  cultureValue={86}
+                  homeSecutityValue={19}
+                  transValue={67}
+                  wifi={42}
+                  cost={localStorage.getItem("language") === "pt-BR" ? (2.455 * 4.2) : 2.455}
+                  costUnity={localStorage.getItem("language") === "en-US" ? "US$" : "R$"}
+                  temperature={localStorage.getItem("language") === "pt-BR" ? 28 : (((28 * 9) / 5) + 32)}
+                  unityTemp={localStorage.getItem("language") === "en-US" ? "°F" : "°C"}
+                  />
+                   <CitiesCard 
+                  onClick={handleOpenModal} 
+                  city="Maceió - AL" 
+                  image={Maceio}
+                  satisfactionValue={82}
+                  cultureValue={56}
+                  homeSecutityValue={29}
+                  transValue={97}
+                  wifi={76}
+                  cost={localStorage.getItem("language") === "pt-BR" ? (1.437 * 4.2) : 1.437}
+                  costUnity={localStorage.getItem("language") === "en-US" ? "US$" : "R$"}
+                  temperature={localStorage.getItem("language") === "pt-BR" ? 34 : (((34 * 9) / 5) + 32)}
+                  unityTemp={localStorage.getItem("language") === "en-US" ? "°F" : "°C"}
+                  />
+                <CitiesCard 
+                  onClick={handleOpenModal} 
+                  city="Macapá - AP" 
+                  image="https://firebasestorage.googleapis.com/v0/b/nomadbr-51538.appspot.com/o/imagem_materia.jpeg?alt=media&token=d50b97dc-6f2d-44ab-83bc-aa417a84288d"
+                  satisfactionValue={82}
+                  cultureValue={56}
+                  homeSecutityValue={29}
+                  transValue={97}
+                  wifi={76}
+                  cost={localStorage.getItem("language") === "pt-BR" ? (456 * 4.2) : 456}
+                  costUnity={localStorage.getItem("language") === "en-US" ? "US$" : "R$"}
+                  temperature={localStorage.getItem("language") === "pt-BR" ? 16 : (((16 * 9) / 5) + 32)}
+                  unityTemp={localStorage.getItem("language") === "en-US" ? "°F" : "°C"}
+                  />
+                {/* <CitiesCard city="Manaus - AM" image={Manaus}/>
                 <CitiesCard city="Fortaleza - CE" image={Fortaleza}/>
                 <CitiesCard city="Brasília - DF" image={Brasilia}/>
                 <CitiesCard city="Vitória - ES" image={Vitoria}/>
@@ -261,7 +300,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
                 <CitiesCard city="Florianópolis - SC" image={Floripa}/>
                 <CitiesCard city="São Paulo - SP" image={SP}/>
                 <CitiesCard city="Aracaju - SE" image={Aracaju}/>
-                <CitiesCard city="Palmas - TO" image={Palmas}/>
+                <CitiesCard city="Palmas - TO" image={Palmas}/> */}
             </PrincipalSection>
             </WrapPrincipal>
         </Container>

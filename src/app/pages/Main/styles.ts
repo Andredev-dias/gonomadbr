@@ -1,8 +1,8 @@
 import styled, {css} from "styled-components";
 
 interface IBtnFilter {
-    isCity?: boolean;
-    isState?: boolean;
+    isTrans?: boolean;
+    isSec?: boolean;
     isPricing?: boolean;
     isClimate?: boolean;
 }
@@ -101,11 +101,11 @@ export const BtnFilterClicked = css`
 `;
 
 export const BtnFilterCity = styled.button<IBtnFilter>`
-    ${({ isCity }) => (isCity ? `${BtnFilterClicked}` : `${BtnFilterNotClicked}`)}
+    ${({ isTrans }) => (isTrans ? `${BtnFilterClicked}` : `${BtnFilterNotClicked}`)}
 `;
 
 export const BtnFilterState = styled.button<IBtnFilter>`
-    ${({ isState }) => (isState ? `${BtnFilterClicked}` : `${BtnFilterNotClicked}`)}
+    ${({ isSec }) => (isSec ? `${BtnFilterClicked}` : `${BtnFilterNotClicked}`)}
 `;
 
 export const BtnFilterPricing = styled.button<IBtnFilter>`
