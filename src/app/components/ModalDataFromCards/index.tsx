@@ -1,62 +1,92 @@
 import React, { useEffect, useRef, useState } from "react";
-import {Container,InformationSection,MapBoxSection} from './styles';
+import {WrapCard,Cards, Climate,Container,InformationSection,MapBoxSection, MapViewBtns, BtnView} from './styles';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from 'mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
-
+// Import interfaces
+import { IMap } from "./interfaces";
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGVjb3NhbXVyYXkiLCJhIjoiY2w2bGJ0ZTU0MGE4NDNkbXJxaTFoaWhicyJ9.E7suFxe03-TU6SE0z_Rb9A';
 
-const ModalDataFromCards = () => {
-  const mapContainer = useRef(null);
+/**
+ * Parâmetros do componente
+ * @param lng longitude
+ * @param lat latitude
+ * @param zoom zoom do mapa 6 de longe, 20 mais perto
+ */
+const ModalDataFromCards = (props: IMap) => {
+  const [isSattelite, setIsSattelite] = useState(false);
+  const [isStreet, setIsStreet] = useState(false);
+  const [isLight, setIsLight] = useState(false);
+  const [mapTheme, setMapTheme] = useState<string>(isSattelite ? "satellite-streets-v11" : isStreet ? 'streets-v11' :isLight ? 'light-v10' : "satellite-streets-v11");
   const mapDiv = useRef<HTMLDivElement>(null);
   let [map, setMap] = useState(null);
-  const [lng, setLng] = useState(-70.9);
-  const [lat, setLat] = useState(42.35);
-  const [zoom, setZoom] = useState(9);
+  const [lng, setLng] = useState(props.lng);
+  const [lat, setLat] = useState(props.lat);
+  const [zoom, setZoom] = useState(props.zoom);
 
   useEffect(() => {
     const attachMap = (setMap: React.Dispatch<React.SetStateAction<any>>, mapDiv: React.RefObject<HTMLDivElement>) => {
       if (!mapDiv.current) {
         return;
       }
-      const map = new mapboxgl.Map({
+      const map = new mapboxgl.Map(
+        {
         container: mapDiv.current || '', 
-        style: 'mapbox://styles/mapbox/satellite-streets-v11',
-        center: [-121.91390991210938, 40.316184625814095],
-        zoom: 10,
-      })
+        style:`mapbox://styles/mapbox/${mapTheme}`,
+        center: [lng, lat],
+        zoom: props.zoom,
+        }
+      )
       setMap(map);
     }
   
     !map && attachMap(setMap, mapDiv)
   
-  }, [map]);
+  }, [map, mapTheme]);
+  
+  const handleMapViewSat = () => {
+    setIsSattelite(true);
+    setIsStreet(false);
+    setIsLight(false);
+    // setMapTheme('satellite-streets-v11')
+  };
 
+  const handleMapViewLight = () => {
+    setIsSattelite(false);
+    setIsStreet(false);
+    setIsLight(true);
+    // setMapTheme('light-v10')
+  };
 
+  const handleMapViewStrees = () => {
+    setIsSattelite(false);
+    setIsStreet(true);
+    setIsLight(false);
+    // setMapTheme('streets-v11')
+  };
+console.log(isSattelite)
   return(
        <Container>
         <InformationSection>
-          <h1>primeiro</h1>
-          <h1>primeiro</h1>
-          <h1>primeiro</h1>
-          <h1>primeiro</h1>
-          <h1>primeiro</h1>
-          <h1>primeiro</h1>
-          <h1>primeiro</h1>
-          <h1>primeiro</h1>
-          <h1>primeiro</h1>
-          <h1>primeiro</h1>
-          <h1>primeiro</h1>
-          <h1>primeiro</h1>
-          <h1>primeiro</h1>
-          <h1>primeiro</h1>
-          <h1>primeiro</h1>
-          <h1>primeiro</h1>
-          <h1>primeiro</h1>
-          <h1>primeiro</h1>
-          <h1>primeiro</h1>
+        <Cards>
+          <WrapCard>
+            {props.IconInfo}
+            <h5>{props.infoLabel}</h5>
+            <progress value={props.infoValue} max={100}></progress>
+            <p>{props.infoValue}</p>
+          </WrapCard>
+        </Cards>
+        <Climate>
+          <p>{props.infoTemp}</p>
+          <h1>Temperatura</h1>
+        </Climate>
         </InformationSection>
         <MapBoxSection>
         Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
+        <MapViewBtns>
+          <BtnView onClick={handleMapViewSat}>Satelite</BtnView>
+          <BtnView onClick={handleMapViewLight}>Light</BtnView>
+          <BtnView onClick={handleMapViewStrees}>Streets</BtnView>
+        </MapViewBtns>
         <div ref={mapDiv} className="map-container" />
         </MapBoxSection>
        </Container>

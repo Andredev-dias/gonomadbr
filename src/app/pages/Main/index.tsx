@@ -192,7 +192,14 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
       aria-describedby="modal-modal-description"
     >
       <Box sx={styleModal}>
-          <ModalDataFromCards/>
+          <ModalDataFromCards 
+            IconInfo="@"
+            infoLabel="Galinha pintadinha"
+            infoValue={50}
+            infoTemp={33}
+            lng={-70.9} 
+            lat={42.35} 
+            zoom={8}/>
       </Box>
     </Modal>
         <Container>
@@ -236,7 +243,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
             </FilterMenu>
             <WrapPrincipal>
             <PrincipalSection>
-                <CitiesCard 
+                {/* <CitiesCard 
                   onClick={handleOpenModal} 
                   city="Rio Branco - AC" 
                   image={RioBranco}
@@ -263,7 +270,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
                   costUnity={localStorage.getItem("language") === "en-US" ? "US$" : "R$"}
                   temperature={localStorage.getItem("language") === "pt-BR" ? 34 : (((34 * 9) / 5) + 32)}
                   unityTemp={localStorage.getItem("language") === "en-US" ? "°F" : "°C"}
-                  />
+                  /> */}
                 <CitiesCard 
                   onClick={handleOpenModal} 
                   city="Macapá - AP" 
