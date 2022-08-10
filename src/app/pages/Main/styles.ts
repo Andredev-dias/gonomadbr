@@ -70,34 +70,36 @@ export const InputSearch = styled.input`
 `;
 
 export const BtnFilterNotClicked = css`
-    padding: 10px;
-    width: 200px;
-    height:auto;
-    color:#f8f8f2;
-    font-size: 1rem;
-    border-radius: 5px;
-    border: 1px dashed #8be9fd;
-    background-color: #44475a;
-    text-align: center;
-    opacity: 0.8;
-    :hover{
-        cursor: pointer;
-        opacity: 1;
-        border: 1px solid #8be9fd;
-    }
+display: flex;
+justify-content: center;
+align-items: center;
+color:#f8f8f2;
+border-radius: 5px;
+border: 1px dashed #8be9fd;
+background-color: #44475a;
+padding: 5px;
+width: 150px;
+font-size: 1rem;
+opacity: 0.5;
+:hover{
+  cursor: pointer;
+  opacity: 1;
+  color:#8be9fd;
+}
 `;
 
 export const BtnFilterClicked = css`
-    padding: 10px;
-    width: 200px;
-    height:auto;
-    color:#f8f8f2;
-    font-size: 1rem;
-    border-radius: 5px;
-    border: none;
-    background-color: #44475a;
-    text-align: center;
-    box-shadow: 1px 1px 5px 1px #8be9fd ;
+display: flex;
+justify-content: center;
+align-items: center;
+color:#8be9fd;
+border-radius: 5px;
+border: 1px solid #8be9fd;
+background-color: #44475a;
+padding: 5px;
+width: 150px;
+font-size: 1rem;
+opacity: 1;
 `;
 
 export const BtnFilterCity = styled.button<IBtnFilter>`

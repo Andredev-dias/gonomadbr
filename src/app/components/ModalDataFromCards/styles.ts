@@ -1,5 +1,10 @@
 import styled, {css} from "styled-components";
 
+interface IBtns{
+  isSattelite?: boolean;
+  isStreet?: boolean;
+  isLight?: boolean;
+}
 
 export const Container = styled.div`
 display: flex;
@@ -74,19 +79,44 @@ z-index: 100;
 gap: 10px;
 `;
 
-export const BtnView = styled.button`
+export const BtnViewGeneral = css`
 display: flex;
 justify-content: center;
 align-items: center;
-color: ${props => props.theme.words};
-background-color:${props => props.theme.lightBackground} ;
-border-radius: 10px;
+color:#f8f8f2;
+border-radius: 5px;
+border: 1px dashed #8be9fd;
+background-color: #44475a;
 padding: 5px;
 width: 100px;
 :hover{
   cursor: pointer;
-  color: ${props => props.theme.primary};
-}
+  color:#8be9fd;
+    }
+`;
+
+export const BtnViewGeneralClicked = css`
+display: flex;
+justify-content: center;
+align-items: center;
+color:#8be9fd;
+border-radius: 5px;
+border: 1px solid #8be9fd;
+background-color: #44475a;
+padding: 5px;
+width: 100px;
+`;
+
+export const BtnViewSat = styled.button<IBtns>`
+${({ isSattelite }) => (isSattelite ? `${BtnViewGeneralClicked}` : `${BtnViewGeneral}`)}
+`;
+
+export const BtnViewLight = styled.button<IBtns>`
+${({ isLight }) => (isLight ? `${BtnViewGeneralClicked}` : `${BtnViewGeneral}`)}
+`;
+
+export const BtnViewStreet = styled.button<IBtns>`
+${({ isStreet }) => (isStreet ? `${BtnViewGeneralClicked}` : `${BtnViewGeneral}`)}
 `;
 
 export const Cards = styled.div`

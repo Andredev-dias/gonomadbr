@@ -171,7 +171,7 @@ export const PLifeCostLabel = styled.p`
 ${footerCardStyle}
 `;
 
-export const WrapTemp = styled.h1`
+export const WrapTemp = styled.div`
 display: flex;
 flex-direction: column;
 position: absolute;

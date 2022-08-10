@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import {WrapCard,Cards, Climate,Container,InformationSection,MapBoxSection, MapViewBtns, BtnView} from './styles';
+import {WrapCard,Cards, Climate,Container,InformationSection,MapBoxSection, MapViewBtns, BtnViewSat, BtnViewLight, BtnViewStreet} from './styles';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from 'mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 // Import interfaces
@@ -16,7 +16,7 @@ const ModalDataFromCards = (props: IMap) => {
   const [isSattelite, setIsSattelite] = useState(false);
   const [isStreet, setIsStreet] = useState(false);
   const [isLight, setIsLight] = useState(false);
-  const [mapTheme, setMapTheme] = useState<string>(isSattelite ? "satellite-streets-v11" : isStreet ? 'streets-v11' :isLight ? 'light-v10' : "satellite-streets-v11");
+  const [mapTheme, setMapTheme] = useState<string>("satellite-streets-v11");
   const mapDiv = useRef<HTMLDivElement>(null);
   let [map, setMap] = useState(null);
   const [lng, setLng] = useState(props.lng);
@@ -47,23 +47,25 @@ const ModalDataFromCards = (props: IMap) => {
     setIsSattelite(true);
     setIsStreet(false);
     setIsLight(false);
-    // setMapTheme('satellite-streets-v11')
+    setMapTheme("satellite-streets-v11")
   };
 
   const handleMapViewLight = () => {
     setIsSattelite(false);
     setIsStreet(false);
     setIsLight(true);
-    // setMapTheme('light-v10')
+    setMapTheme("light-v10")
   };
 
   const handleMapViewStrees = () => {
     setIsSattelite(false);
     setIsStreet(true);
     setIsLight(false);
-    // setMapTheme('streets-v11')
+    setMapTheme("streets-v11")
   };
-console.log(isSattelite)
+
+  console.log(mapTheme)
+
   return(
        <Container>
         <InformationSection>
@@ -83,9 +85,9 @@ console.log(isSattelite)
         <MapBoxSection>
         Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
         <MapViewBtns>
-          <BtnView onClick={handleMapViewSat}>Satelite</BtnView>
-          <BtnView onClick={handleMapViewLight}>Light</BtnView>
-          <BtnView onClick={handleMapViewStrees}>Streets</BtnView>
+          <BtnViewSat isSattelite={isSattelite} onClick={handleMapViewSat}>Satelite</BtnViewSat>
+          <BtnViewLight isLight={isLight} onClick={handleMapViewLight}>Light</BtnViewLight>
+          <BtnViewStreet isStreet={isStreet} onClick={handleMapViewStrees}>Streets</BtnViewStreet>
         </MapViewBtns>
         <div ref={mapDiv} className="map-container" />
         </MapBoxSection>

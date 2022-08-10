@@ -16,7 +16,8 @@ const MainHeader = () => {
           url='https://www.youtube.com/watch?v=HSsqzzuGTPo'
           width='100%'
           height='90%'
-          volume={0.1}
+          volume={0}
+          playing={true}
         />
       </div>
     
