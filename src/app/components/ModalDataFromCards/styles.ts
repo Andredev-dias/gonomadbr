@@ -44,7 +44,7 @@ export const Map = styled.div`
 
 export const InformationSection = styled.div`
 background-color:  ${props => props.theme.background};
-width: 50%;
+width: 69%;
 height: 100%;
 overflow-y: auto;
 display: flex;
@@ -71,7 +71,7 @@ ${props => props.theme.background}
 
 export const MapBoxSection = styled.div`
 background-color: ${props => props.theme.background};
-width: 50%;
+width: 31%;
 height: 100%;
 overflow: hidden;
 color: ${props => props.theme.words};
