@@ -1,10 +1,27 @@
 import styled, {css} from "styled-components";
-
+import {SiOpenstreetmap} from 'react-icons/si';
 interface IBtns{
   isSattelite?: boolean;
   isStreet?: boolean;
   isLight?: boolean;
 }
+
+const IconMap = css`
+width: 5rem;
+height: 5rem;
+background-color: ${props => props.theme.lightBackground} ;
+border-radius: 10px;
+padding: 0.3vw;
+color: ${props => props.theme.words};
+:hover{
+  color: ${props => props.theme.primary};
+  cursor: pointer;
+}
+`;
+
+export const IconMapNav = styled(SiOpenstreetmap)`
+${IconMap};
+`;
 
 export const Container = styled.div`
 display: flex;
@@ -14,6 +31,15 @@ justify-content: center;
 background-color: none;
 width: 70vw;
 height: 70vh;
+.map-container {
+    width: 10%;
+    height:10%;
+}
+`;
+
+export const Map = styled.div`
+  width: 10%;
+    height:10%;
 `;
 
 export const InformationSection = styled.div`
@@ -49,18 +75,15 @@ width: 50%;
 height: 100%;
 overflow: hidden;
 color: ${props => props.theme.words};
-.map-container {
-    width: 100%;
-    height: 105%;
-}
 .mapboxgl-ctrl-logo{
-  display: none;
+  display:none;
 }
-.mapboxgl-ctrl-icon{
-  display: none;
-}
-.mapboxgl-ctrl .mapboxgl-ctrl-attrib .mapboxgl-ctrl-attrib-inner{
-  display: none;
+.mapboxgl-ctrl{
+  display:none;
+} 
+
+.mapboxgl-ctrl-attrib{
+  display:none;
 }
 `;
 
@@ -70,7 +93,7 @@ flex-direction: row;
 justify-content: right;
 align-items: right;
 position: absolute;
-top: 12px;
+top: 30px;
 right: 12px;
 background-color: transparent;
 width: auto;
@@ -155,3 +178,21 @@ border-radius: 999px;
 padding: 1rem;
 `;
 
+export const NavigationMap = styled.div`
+width: 100%;
+height: 100%;
+`;
+
+
+export const styleModal = {
+  position: 'absolute' as 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '80vw',
+  height:'80vh',
+  bgcolor: '#44475a',
+  boxShadow: 24,
+  p: 1,
+  borderRadius: '10px'
+};

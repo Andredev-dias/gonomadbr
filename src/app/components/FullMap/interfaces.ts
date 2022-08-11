@@ -11,7 +11,7 @@ interface IMap extends React.HTMLAttributes<HTMLElement> {
     infoLabel?: string;
     infoValue?:number ;
     infoTemp?: number;
-   
+    mapTheme?: string;
 }
 
 

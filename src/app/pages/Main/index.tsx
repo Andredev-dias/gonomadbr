@@ -197,9 +197,9 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
             infoLabel="Galinha pintadinha"
             infoValue={50}
             infoTemp={33}
-            lng={-70.9} 
-            lat={42.35} 
-            zoom={8}/>
+            lat={-25.4951166} 
+            lng={-49.2897982} 
+            zoom={11}/>
       </Box>
     </Modal>
         <Container>
@@ -285,7 +285,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
                   temperature={localStorage.getItem("language") === "pt-BR" ? 16 : (((16 * 9) / 5) + 32)}
                   unityTemp={localStorage.getItem("language") === "en-US" ? "°F" : "°C"}
                   />
-                <CitiesCard city="Manaus - AM" image={Manaus}/>
+                {/* <CitiesCard city="Manaus - AM" image={Manaus}/>
                 <CitiesCard city="Fortaleza - CE" image={Fortaleza}/>
                 <CitiesCard city="Brasília - DF" image={Brasilia}/>
                 <CitiesCard city="Vitória - ES" image={Vitoria}/>
@@ -307,7 +307,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
                 <CitiesCard city="Florianópolis - SC" image={Floripa}/>
                 <CitiesCard city="São Paulo - SP" image={SP}/>
                 <CitiesCard city="Aracaju - SE" image={Aracaju}/>
-                <CitiesCard city="Palmas - TO" image={Palmas}/>
+                <CitiesCard city="Palmas - TO" image={Palmas}/> */}
             </PrincipalSection>
             </WrapPrincipal>
         </Container>
