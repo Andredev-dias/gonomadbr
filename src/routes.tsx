@@ -5,10 +5,10 @@ export const Routes = () => {
     return(
         <BrowserRouter>
         <Switch>
-            <Route path='/' element={<Main/>} >
-            </Route>
-            <Route path='*' element={<h1>Pagina nao encontrada</h1>}>
-            </Route>
+            <Route path='/' element={<Main/>} />
+           
+            <Route path='*' element={<h1>Pagina nao encontrada</h1>}/>
+          
             </Switch>
         </BrowserRouter> 
     )

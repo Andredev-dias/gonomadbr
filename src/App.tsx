@@ -6,7 +6,7 @@ import {LightTheme, DarkTheme} from "./styles/theme";
 import { ThemeProvider, useTheme} from 'styled-components';
 
 import mapboxgl from 'mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
-
+import 'mapbox-gl/dist/mapbox-gl.css';
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGVjb3NhbXVyYXkiLCJhIjoiY2w2bGJ0ZTU0MGE4NDNkbXJxaTFoaWhicyJ9.E7suFxe03-TU6SE0z_Rb9A';
 const App = () => {
 const theme = useTheme();

@@ -1,10 +1,44 @@
 import React, { useEffect, useRef, useState } from "react";
-import {WrapCard,Cards, Climate,Container,InformationSection,MapBoxSection, MapViewBtns, BtnViewSat, BtnViewLight, BtnViewStreet} from './styles';
+import {RowDivs,
+  IconMapNav,
+  WrapCard,
+  Cards,
+  NavigationMap,
+  Map, 
+  Climate,
+  Container,
+  InformationSection,
+  MapBoxSection,
+   styleModal ,
+    MapViewBtns,
+     BtnViewSat,
+      BtnViewLight,
+       BtnViewStreet,
+       IconWeatherSun,
+       IconWeatherStormy,
+       IconWeatherPar,
+       IconWeatherCold,
+       WrapIconAndValue,
+       TempValueAside,
+       LabelAside,
+       IconWifi
+      } from './styles';
+
+// imports internos
+import InfoLines from "../InfoLines";
+import Charts from "../Charts";
+// imports do mapa
 import 'mapbox-gl/dist/mapbox-gl.css';
-import mapboxgl from 'mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
+import mapboxgl from "mapbox-gl";
+import MapGl, { NavigationControl } from "react-map-gl";
 // Import interfaces
 import { IMap } from "./interfaces";
+import 'mapbox-gl/dist/mapbox-gl.css';
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+import FullMap from "../FullMap";
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGVjb3NhbXVyYXkiLCJhIjoiY2w2bGJ0ZTU0MGE4NDNkbXJxaTFoaWhicyJ9.E7suFxe03-TU6SE0z_Rb9A';
+
 
 /**
  * Parâmetros do componente
@@ -17,32 +51,17 @@ const ModalDataFromCards = (props: IMap) => {
   const [isStreet, setIsStreet] = useState(false);
   const [isLight, setIsLight] = useState(false);
   const [mapTheme, setMapTheme] = useState<string>("satellite-streets-v11");
-  const mapDiv = useRef<HTMLDivElement>(null);
-  let [map, setMap] = useState(null);
   const [lng, setLng] = useState(props.lng);
   const [lat, setLat] = useState(props.lat);
   const [zoom, setZoom] = useState(props.zoom);
+  const [openModal, setOpenModal] = useState<boolean>(false);
 
-  useEffect(() => {
-    const attachMap = (setMap: React.Dispatch<React.SetStateAction<any>>, mapDiv: React.RefObject<HTMLDivElement>) => {
-      if (!mapDiv.current) {
-        return;
-      }
-      const map = new mapboxgl.Map(
-        {
-        container: mapDiv.current || '', 
-        style:`mapbox://styles/mapbox/${mapTheme}`,
-        center: [lng, lat],
-        zoom: props.zoom,
-        }
-      )
-      setMap(map);
-    }
-  
-    !map && attachMap(setMap, mapDiv)
-  
-  }, [map, mapTheme]);
-  
+  const [viewport, setViewport] = useState<any>({
+    latitude: lat,
+    longitude: lng,
+    zoom: props.zoom,
+  });
+
   const handleMapViewSat = () => {
     setIsSattelite(true);
     setIsStreet(false);
@@ -64,34 +83,79 @@ const ModalDataFromCards = (props: IMap) => {
     setMapTheme("streets-v11")
   };
 
-  console.log(mapTheme)
+  const handleOpenModal = () => setOpenModal(true);
+  const handleCloseModal = () => setOpenModal(false);
 
   return(
-       <Container>
+    <>
+   <Modal
+    open={openModal}
+    onClose={handleCloseModal}
+    aria-labelledby="modal-modal-title"
+    aria-describedby="modal-modal-description"
+    keepMounted
+  >
+    <Box sx={styleModal}>
+      <NavigationMap>
+          <FullMap lng={props.lng} lat={props.lat} zoom={props.zoom} mapTheme={mapTheme}/>
+      </NavigationMap>
+    </Box>
+  </Modal>
+    <Container>
         <InformationSection>
+          <RowDivs>
         <Cards>
-          <WrapCard>
-            {props.IconInfo}
-            <h5>{props.infoLabel}</h5>
-            <progress value={props.infoValue} max={100}></progress>
-            <p>{props.infoValue}</p>
-          </WrapCard>
+           <InfoLines
+            infoValueCost={props.infoValueCost}
+             infoLabelCost={props.infoLabelCost}
+              infoLabelSec={props.infoLabelSec}
+               infoValueSec={props.infoValueSec}
+               infoLabelTrans={props.infoLabelTrans}
+               infoValueTrans={props.infoValueTrans}
+                infoLabelCul={props.infoLabelCul}
+               infoValueCul={props.infoValueCul}
+               />
         </Cards>
         <Climate>
-          <p>{props.infoTemp}</p>
-          <h1>Temperatura</h1>
+        <WrapIconAndValue>
+         {props.infoTemp && props.infoTemp > 25 && <IconWeatherSun/>}
+         {props.infoTemp && props.infoTemp <= 25 && props.infoTemp > 16 && <IconWeatherPar/>}
+         {props.infoTemp && props.infoTemp <= 16 && props.infoTemp > 12 && <IconWeatherStormy/>}
+         {props.infoTemp && props.infoTemp <= 12 && <IconWeatherCold/>}
+          <TempValueAside>{props.infoTemp} <h4 style={{color: "#8884d8"}}>{localStorage.getItem("language") === "pt-BR" ? "°C" : "°F"}</h4> </TempValueAside>
+        </WrapIconAndValue>
+        <LabelAside>Temperatura</LabelAside>
+        <WrapIconAndValue>
+          <h4 style={{color: "#8884d8"}}>{localStorage.getItem("language") === "pt-BR" ? "R$" : "US$"}</h4> 
+          <TempValueAside>{props.cost}</TempValueAside>
+        </WrapIconAndValue>
+        <LabelAside>Custo de Vida</LabelAside>
+        <IconWifi/>
+          <TempValueAside>{props.wifi}</TempValueAside>
+        <LabelAside>Wi-Fi</LabelAside>
         </Climate>
+        </RowDivs>
+          <Charts/>
         </InformationSection>
-        <MapBoxSection>
+        <MapBoxSection >
         Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
         <MapViewBtns>
           <BtnViewSat isSattelite={isSattelite} onClick={handleMapViewSat}>Satelite</BtnViewSat>
           <BtnViewLight isLight={isLight} onClick={handleMapViewLight}>Light</BtnViewLight>
           <BtnViewStreet isStreet={isStreet} onClick={handleMapViewStrees}>Streets</BtnViewStreet>
+          <IconMapNav onClick={handleOpenModal}/>
         </MapViewBtns>
-        <div ref={mapDiv} className="map-container" />
+             <MapGl
+             {...viewport}
+              width="100%"
+              height="100%"
+              onViewportChange={setViewport}
+              mapStyle={`mapbox://styles/mapbox/${mapTheme}`}
+              mapboxApiAccessToken={'pk.eyJ1IjoiZGVjb3NhbXVyYXkiLCJhIjoiY2w2bGJ0ZTU0MGE4NDNkbXJxaTFoaWhicyJ9.E7suFxe03-TU6SE0z_Rb9A'}>
+            </MapGl>
         </MapBoxSection>
        </Container>
+       </>
     )
 };
 export default ModalDataFromCards;
