@@ -147,7 +147,7 @@ export const ProgressBar = styled.progress<IBar>`
     appearance: none;
     border-radius: 999px;
     ::-webkit-progress-bar {
-      background-color: ${props => props.theme.word};
+      background-color: ${props => props.theme.background};
       border-radius: 999px;
     }
     ::-webkit-progress-value {

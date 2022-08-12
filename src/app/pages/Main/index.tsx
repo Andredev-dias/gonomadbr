@@ -202,10 +202,13 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
             infoValueTrans={90}
             infoLabelCul="Cultura"
             infoValueCul={20}
-            infoTemp={33}
+            infoTemp={28}
             lat={0.1017723} 
             lng={-51.0968607} 
-            zoom={11}/>
+            zoom={11}
+            cost={localStorage.getItem("language") === "pt-BR" ? (456 * 4.2) : 456}
+            wifi={76}
+            />
       </Box>
     </Modal>
         <Container>

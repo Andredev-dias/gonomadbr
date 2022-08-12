@@ -1,5 +1,28 @@
 import React, { useEffect, useRef, useState } from "react";
-import {RowDivs,IconMapNav,WrapCard,Cards,NavigationMap,Map, Climate,Container,InformationSection,MapBoxSection, styleModal , MapViewBtns, BtnViewSat, BtnViewLight, BtnViewStreet} from './styles';
+import {RowDivs,
+  IconMapNav,
+  WrapCard,
+  Cards,
+  NavigationMap,
+  Map, 
+  Climate,
+  Container,
+  InformationSection,
+  MapBoxSection,
+   styleModal ,
+    MapViewBtns,
+     BtnViewSat,
+      BtnViewLight,
+       BtnViewStreet,
+       IconWeatherSun,
+       IconWeatherStormy,
+       IconWeatherPar,
+       IconWeatherCold,
+       WrapIconAndValue,
+       TempValueAside,
+       LabelAside,
+       IconWifi
+      } from './styles';
 
 // imports internos
 import InfoLines from "../InfoLines";
@@ -94,8 +117,22 @@ const ModalDataFromCards = (props: IMap) => {
                />
         </Cards>
         <Climate>
-          <p>{props.infoTemp}</p>
-          <h1>Temperatura</h1>
+        <WrapIconAndValue>
+         {props.infoTemp && props.infoTemp > 25 && <IconWeatherSun/>}
+         {props.infoTemp && props.infoTemp <= 25 && props.infoTemp > 16 && <IconWeatherPar/>}
+         {props.infoTemp && props.infoTemp <= 16 && props.infoTemp > 12 && <IconWeatherStormy/>}
+         {props.infoTemp && props.infoTemp <= 12 && <IconWeatherCold/>}
+          <TempValueAside>{props.infoTemp} <h4 style={{color: "#8884d8"}}>{localStorage.getItem("language") === "pt-BR" ? "°C" : "°F"}</h4> </TempValueAside>
+        </WrapIconAndValue>
+        <LabelAside>Temperatura</LabelAside>
+        <WrapIconAndValue>
+          <h4 style={{color: "#8884d8"}}>{localStorage.getItem("language") === "pt-BR" ? "R$" : "US$"}</h4> 
+          <TempValueAside>{props.cost}</TempValueAside>
+        </WrapIconAndValue>
+        <LabelAside>Custo de Vida</LabelAside>
+        <IconWifi/>
+          <TempValueAside>{props.wifi}</TempValueAside>
+        <LabelAside>Wi-Fi</LabelAside>
         </Climate>
         </RowDivs>
           <Charts/>

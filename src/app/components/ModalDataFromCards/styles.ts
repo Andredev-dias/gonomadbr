@@ -1,10 +1,38 @@
 import styled, {css} from "styled-components";
 import {SiOpenstreetmap} from 'react-icons/si';
+import {TiWeatherSunny, TiWeatherStormy, TiWeatherPartlySunny, TiWeatherSnow} from 'react-icons/ti';
+import {FaWifi} from 'react-icons/fa';
 interface IBtns{
   isSattelite?: boolean;
   isStreet?: boolean;
   isLight?: boolean;
 }
+
+const IconMapWeather = css`
+width: 6rem;
+height: 6rem;
+background-color: ${props => props.theme.lightBackground} ;
+border-radius: 10px;
+color: ${props => props.theme.primary};
+`;
+
+export const IconWeatherSun = styled(TiWeatherSunny)`
+${IconMapWeather};
+`;
+export const IconWeatherStormy = styled(TiWeatherStormy)`
+${IconMapWeather};
+`;
+export const IconWeatherPar = styled(TiWeatherPartlySunny)`
+${IconMapWeather};
+`;
+export const IconWeatherCold = styled(TiWeatherSnow)`
+${IconMapWeather};
+`;
+export const IconWifi = styled(FaWifi)`
+${IconMapWeather};
+width: 3rem;
+height: 3rem;
+`;
 
 const IconMap = css`
 width: 5rem;
@@ -160,7 +188,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-gap: 5px;
+gap: 10px;
 background-color: ${props => props.theme.lightBackground};
 width: 26%;
 height:auto;
@@ -168,7 +196,32 @@ color: ${props => props.theme.words};
 border-radius: 10px;
 margin: 10px;
 padding: 10px;
+overflow-x: hidden;
 `;
+
+export const WrapIconAndValue = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+width: 100%;
+`;
+
+export const TempValueAside = styled.div`
+font-size: 3rem;
+font-weight: 100;
+`; 
+
+export const LabelAside = styled.h4`
+font-size: 0.8rem;
+text-align: center;
+width: 90%;
+border-bottom: 5px solid ${props => props.theme.background};
+padding-bottom: 20px;
+:nth-last-child(1){
+  border-bottom:none;
+}
+`; 
 
 export const WrapCard = styled.div`
 display: flex;

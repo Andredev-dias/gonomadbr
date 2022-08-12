@@ -5,7 +5,7 @@ import React from "react";
 import { IContainer } from "./interfaces";
 
 // Import components estilizados
-import { Container } from "./styles";
+import {ValuePBar,LabelPBar, ProgressBar,Container, IconBarsSatisfaction, IconBarsCulture, IconBarsTrans, IconBarsHomeSecurity } from "./styles";
 
 /**
  * Parâmetros do componente
@@ -18,28 +18,28 @@ function InfoLines(props: IContainer) {
   return (
     <>
     <Container>
-      <i>@</i>
-      <h5>{props.infoLabelCost}</h5>
-      <progress value={props.infoValueCost} max={100}></progress>
-      <p>{props.infoValueCost}</p>
+      <IconBarsSatisfaction/>
+      <LabelPBar>{props.infoLabelCost}</LabelPBar>
+      <ProgressBar value={props.infoValueCost} max={100} valor={props.infoValueCost}></ProgressBar>
+      <ValuePBar valor={props.infoValueCost}>{props.infoValueCost}%</ValuePBar>
     </Container>
     <Container>
-      <i>@</i>
-      <h5>{props.infoLabelSec}</h5>
-      <progress value={props.infoValueSec} max={100}></progress>
-      <p>{props.infoValueSec}</p>
+      <IconBarsHomeSecurity/>
+      <LabelPBar>{props.infoLabelSec}</LabelPBar>
+      <ProgressBar value={props.infoValueSec} max={100} valor={props.infoValueSec}></ProgressBar>
+      <ValuePBar valor={props.infoValueSec}>{props.infoValueSec}%</ValuePBar>
     </Container>
     <Container>
-      <i>@</i>
-      <h5>{props.infoLabelTrans}</h5>
-      <progress value={props.infoValueTrans} max={100}></progress>
-      <p>{props.infoValueTrans}</p>
+    <IconBarsTrans/>
+      <LabelPBar>{props.infoLabelTrans}</LabelPBar>
+      <ProgressBar value={props.infoValueTrans} max={100} valor={props.infoValueTrans}></ProgressBar>
+      <ValuePBar valor={props.infoValueTrans}>{props.infoValueTrans}%</ValuePBar>
    </Container>
    <Container>
-      <i>@</i>
-      <h5>{props.infoLabelCul}</h5>
-      <progress value={props.infoValueCul} max={100}></progress>
-      <p>{props.infoValueCul}</p>
+      <IconBarsCulture/>
+      <LabelPBar>{props.infoLabelCul}</LabelPBar>
+      <ProgressBar value={props.infoValueCul} max={100} valor={props.infoValueCul}></ProgressBar>
+      <ValuePBar valor={props.infoValueCul}>{props.infoValueCul}%</ValuePBar>
    </Container>
 </>
   );

@@ -37,7 +37,9 @@ const FullMap = (props: IMap) => {
 
   return(
     <Container>
+    
      <div ref={mapDiv} className="map-container" />
+     
     </Container>
     )
 };
