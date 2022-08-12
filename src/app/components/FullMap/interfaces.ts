@@ -8,8 +8,10 @@ interface IMap extends React.HTMLAttributes<HTMLElement> {
     lat: number ;
     zoom?: number;
     IconInfo?:string ;
-    infoLabel?: string;
-    infoValue?:number ;
+    infoLabelCost?: string;
+    infoValueCost?:number ;
+    infoLabelSec?: string;
+    infoValueSec?:number ;
     infoTemp?: number;
     mapTheme?: string;
 }

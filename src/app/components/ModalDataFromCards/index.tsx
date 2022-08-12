@@ -1,6 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
-import {IconMapNav,WrapCard,Cards,NavigationMap,Map, Climate,Container,InformationSection,MapBoxSection, styleModal , MapViewBtns, BtnViewSat, BtnViewLight, BtnViewStreet} from './styles';
+import {RowDivs,IconMapNav,WrapCard,Cards,NavigationMap,Map, Climate,Container,InformationSection,MapBoxSection, styleModal , MapViewBtns, BtnViewSat, BtnViewLight, BtnViewStreet} from './styles';
 
+// imports internos
+import InfoLines from "../InfoLines";
+import Charts from "../Charts";
 // imports do mapa
 import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from "mapbox-gl";
@@ -12,6 +15,8 @@ import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import FullMap from "../FullMap";
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGVjb3NhbXVyYXkiLCJhIjoiY2w2bGJ0ZTU0MGE4NDNkbXJxaTFoaWhicyJ9.E7suFxe03-TU6SE0z_Rb9A';
+
+
 /**
  * Parâmetros do componente
  * @param lng longitude
@@ -65,6 +70,7 @@ const ModalDataFromCards = (props: IMap) => {
     onClose={handleCloseModal}
     aria-labelledby="modal-modal-title"
     aria-describedby="modal-modal-description"
+    keepMounted
   >
     <Box sx={styleModal}>
       <NavigationMap>
@@ -74,18 +80,25 @@ const ModalDataFromCards = (props: IMap) => {
   </Modal>
     <Container>
         <InformationSection>
+          <RowDivs>
         <Cards>
-          <WrapCard>
-            {props.IconInfo}
-            <h5>{props.infoLabel}</h5>
-            <progress value={props.infoValue} max={100}></progress>
-            <p>{props.infoValue}</p>
-          </WrapCard>
+           <InfoLines
+            infoValueCost={props.infoValueCost}
+             infoLabelCost={props.infoLabelCost}
+              infoLabelSec={props.infoLabelSec}
+               infoValueSec={props.infoValueSec}
+               infoLabelTrans={props.infoLabelTrans}
+               infoValueTrans={props.infoValueTrans}
+                infoLabelCul={props.infoLabelCul}
+               infoValueCul={props.infoValueCul}
+               />
         </Cards>
         <Climate>
           <p>{props.infoTemp}</p>
           <h1>Temperatura</h1>
         </Climate>
+        </RowDivs>
+          <Charts/>
         </InformationSection>
         <MapBoxSection >
         Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}

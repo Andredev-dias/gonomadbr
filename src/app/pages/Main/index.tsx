@@ -190,15 +190,21 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
       onClose={handleCloseModal}
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
+      keepMounted
     >
       <Box sx={styleModal}>
           <ModalDataFromCards 
-            IconInfo="@"
-            infoLabel="Galinha pintadinha"
-            infoValue={50}
+            infoLabelCost="Satisfacao"
+            infoValueCost={50}
+            infoLabelSec="Security"
+            infoValueSec={70}
+            infoLabelTrans="Transporte"
+            infoValueTrans={90}
+            infoLabelCul="Cultura"
+            infoValueCul={20}
             infoTemp={33}
-            lat={-25.4951166} 
-            lng={-49.2897982} 
+            lat={0.1017723} 
+            lng={-51.0968607} 
             zoom={11}/>
       </Box>
     </Modal>
@@ -243,7 +249,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
             </FilterMenu>
             <WrapPrincipal>
             <PrincipalSection>
-                <CitiesCard 
+                {/* <CitiesCard 
                   onClick={handleOpenModal} 
                   city="Rio Branco - AC" 
                   image={RioBranco}
@@ -270,7 +276,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
                   costUnity={localStorage.getItem("language") === "en-US" ? "US$" : "R$"}
                   temperature={localStorage.getItem("language") === "pt-BR" ? 34 : (((34 * 9) / 5) + 32)}
                   unityTemp={localStorage.getItem("language") === "en-US" ? "°F" : "°C"}
-                  />
+                  /> */}
                 <CitiesCard 
                   onClick={handleOpenModal} 
                   city="Macapá - AP" 

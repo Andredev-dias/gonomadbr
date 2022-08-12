@@ -48,9 +48,10 @@ width: 69%;
 height: 100%;
 overflow-y: auto;
 display: flex;
-flex-direction: row;
+flex-direction: column;
 align-items: left;
 justify-content: left;
+border-radius: 10px;
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -160,10 +161,13 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 gap: 5px;
-background-color: ${props => props.theme.background};
-width: 30%;
+background-color: ${props => props.theme.lightBackground};
+width: 26%;
 height:auto;
 color: ${props => props.theme.words};
+border-radius: 10px;
+margin: 10px;
+padding: 10px;
 `;
 
 export const WrapCard = styled.div`
@@ -181,6 +185,12 @@ padding: 1rem;
 export const NavigationMap = styled.div`
 width: 100%;
 height: 100%;
+`;
+
+export const RowDivs = styled.div`
+display: flex;
+ flex-direction: row;
+  flex-wrap: wrap;
 `;
 
 
