@@ -7,10 +7,15 @@ interface IBtnFilter {
     isClimate?: boolean;
 }
 
+interface ITheme{
+    theme?: string;
+}
+
 export const Container = styled.div`
     width: 100%;
     height: auto;
-    background-color: ${props => props.theme.background};
+    background-color: var(--background);
+    
     .flag{
         width: 50px;
         height: 50px;
@@ -25,7 +30,7 @@ export const FilterMenu = styled.main`
     justify-content: center;
     width: 100%;
     height: 55px;
-    background: ${props => props.theme.lightBackground};
+    background: var(--lightBackground);
     position: sticky;
     top: 0;
     border: none;
@@ -42,7 +47,7 @@ export const LeftMenuSection = styled.div`
     justify-content: center;
     width: 50%;
     gap: 1vw;
-
+    background: var(--lightBackground);
 `;
 export const RightMenuSection = styled.div`
     display: flex;
@@ -55,17 +60,21 @@ export const RightMenuSection = styled.div`
 
 
 export const InputSearch = styled.input`
-      padding: 10px;
+    padding: 10px;
     width: 200px;
     height:auto;
-    color:${props => props.theme.words};
+    color: var(--words);
     font-size: 1rem;
     border-radius: 999px;
-    border: 2px solid ${props => props.theme.primary};
-    background-color: ${props => props.theme.lightBackground};
+    border: 2px solid var(--primary);
+    background-color: var(--lightBackground);
     text-align: center;
     ::placeholder{
-    color: var(--cyan);
+    color: var(--primary);
+    }
+    :focus{
+        font-size: 1.1rem;
+        background-color: var(--background); 
     }
 `;
 
@@ -73,18 +82,18 @@ export const BtnFilterNotClicked = css`
 display: flex;
 justify-content: center;
 align-items: center;
-color:#f8f8f2;
+color:var(--primary);
 border-radius: 5px;
-border: 1px dashed #8be9fd;
-background-color: #44475a;
+border: 2px dotted var(--primary);
+background-color: var(--lightBackground);
 padding: 5px;
 width: 150px;
 font-size: 1rem;
-opacity: 0.5;
+opacity: 0.8;
 :hover{
   cursor: pointer;
   opacity: 1;
-  color:#8be9fd;
+  color:var(--primary);
 }
 `;
 
@@ -92,10 +101,10 @@ export const BtnFilterClicked = css`
 display: flex;
 justify-content: center;
 align-items: center;
-color:#8be9fd;
+color:var(--primary);
 border-radius: 5px;
-border: 1px solid #8be9fd;
-background-color: #44475a;
+border: 1px solid var(--primary);
+background-color: var(--background);
 padding: 5px;
 width: 150px;
 font-size: 1rem;
@@ -155,13 +164,13 @@ export const BtnFlag = styled.button`
     }
 `;
 
-export const WrapPopover = styled.div`
+export const WrapPopover = styled.div<ITheme>`
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 15px;
-    background-color: ${props => props.theme.background};
+    background: ${({ theme }) => theme === 'light' ? '#FFFAFA' : '#44475a'};
     border: none;
     padding: 15px;
 `;

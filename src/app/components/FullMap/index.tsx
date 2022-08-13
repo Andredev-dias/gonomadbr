@@ -9,9 +9,9 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGVjb3NhbXVyYXkiLCJhIjoiY2w2bGJ0ZTU0MGE4NDNkb
 
 const FullMap = (props: IMap) => {
   
-    const [mapTheme, setMapTheme] = useState<string>(`${props.mapTheme}`);
     const mapDiv = useRef<HTMLDivElement>(null);
     let [map, setMap] = useState(null);
+
     const [lng, setLng] = useState(props.lng);
     const [lat, setLat] = useState(props.lat);
   
@@ -23,7 +23,7 @@ const FullMap = (props: IMap) => {
         const map = new mapboxgl.Map(
           {
           container: mapDiv.current || '', 
-          style:`mapbox://styles/mapbox/${mapTheme}`,
+          style:`mapbox://styles/mapbox/${props.mapTheme}`,
           center: [lng, lat],
           zoom: 5,
           }
@@ -33,7 +33,7 @@ const FullMap = (props: IMap) => {
     
       !map && attachMap(setMap, mapDiv)
     
-    }, [map, mapTheme]);
+    }, [map]);
 
   return(
     <Container>

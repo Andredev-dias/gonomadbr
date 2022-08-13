@@ -88,6 +88,7 @@ const ModalDataFromCards = (props: IMap) => {
 
   return(
     <>
+     <div data-theme={props.theme}>
    <Modal
     open={openModal}
     onClose={handleCloseModal}
@@ -155,6 +156,7 @@ const ModalDataFromCards = (props: IMap) => {
             </MapGl>
         </MapBoxSection>
        </Container>
+       </div>
        </>
     )
 };

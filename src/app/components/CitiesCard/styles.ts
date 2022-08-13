@@ -17,7 +17,7 @@ const IconBarsCSS = css`
 const IconBarsCSS1 = css`
 width: 5rem;
 height: 5rem;
-color: ${props => props.theme.words};
+color: var(--words);
 `;
 
 export const IconBarsSatisfaction = styled(FcCurrencyExchange)`
@@ -54,7 +54,7 @@ export const Container = styled.button`
   flex-direction: column;
   width: 250px;
   height: 250px;
-  background: ${props => props.theme.background};
+  background: var(--background);
   border-radius: 10px;
   border: none;
   overflow: hidden;
@@ -74,11 +74,11 @@ export const Title = styled.h2<IContainer>`
     position: absolute;
     top: 0;
     left: 0;
-    color: ${props => props.theme.words};
+    color: var(--words);
     width: 100%;
     height: auto;
     padding: 5px;
-    text-shadow: 2px 2px ${props => props.theme.background};
+    text-shadow: 2px 2px var(--background);
     font-size: 1.5rem;
     transition: all 1s ease-in-out;
 `;
@@ -127,7 +127,7 @@ export const WrapFooterCard = styled.div`
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    background-color: ${props => props.theme.lightBackground};
+    background-color: var(--lightBackground);
     height: auto;
     width: 100%;
     padding: 5px;
@@ -136,7 +136,7 @@ export const WrapFooterCard = styled.div`
 `;
 
 export const PLabel = styled.h3`
-    color: ${props => props.theme.words};
+    color: var(--words);
     font-size:1.5rem ;
     width: 50px;
 `;
@@ -147,7 +147,7 @@ export const ProgressBar = styled.progress<IBar>`
     appearance: none;
     border-radius: 999px;
     ::-webkit-progress-bar {
-      background-color: ${props => props.theme.background};
+      background-color:var(--background);
       border-radius: 999px;
     }
     ::-webkit-progress-value {
@@ -158,13 +158,13 @@ export const ProgressBar = styled.progress<IBar>`
 
 
 export const footerCardStyle = css`
-    color: ${props => props.theme.words};
+    color: var(--words);
     font-size: 0.7rem;
 `;
 
 export const LifeCostLabel = styled.h5`
 ${footerCardStyle}
-color:${props => props.theme.primary} ;
+color:var(--primary) ;
 `;
 
 export const PLifeCostLabel = styled.p`
@@ -180,9 +180,9 @@ left: 10%;
 `;
 
 export const Temp = styled.h1`
-color: ${props => props.theme.words};
+color: var(--words);
 font-size: 2.5rem;
-text-shadow: 2px 2px ${props => props.theme.background};
+text-shadow: 2px 2px var(--background);
 text-align: left;
 margin-top: 2vh;
 `;
@@ -191,9 +191,9 @@ export const TitleFirst = styled.h2<IContainer>`
     position: absolute;
     top: 20px;
     left: 100px;
-    color: ${props => props.theme.words};
+    color: var(--words);
     width: 100px;
     height: auto;
     font-size: 1.5rem;
-    text-shadow: 2px 2px ${props => props.theme.background};
+    text-shadow: 2px 2px var(--background);
 `;

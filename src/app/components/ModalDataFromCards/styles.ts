@@ -11,9 +11,9 @@ interface IBtns{
 const IconMapWeather = css`
 width: 6rem;
 height: 6rem;
-background-color: ${props => props.theme.lightBackground} ;
+background-color: var(--lightBackground) ;
 border-radius: 10px;
-color: ${props => props.theme.primary};
+color: var(--primary);
 `;
 
 export const IconWeatherSun = styled(TiWeatherSunny)`
@@ -37,12 +37,12 @@ height: 3rem;
 const IconMap = css`
 width: 5rem;
 height: 5rem;
-background-color: ${props => props.theme.lightBackground} ;
+background-color:  var(--lightBackground) ;
 border-radius: 10px;
 padding: 0.3vw;
-color: ${props => props.theme.words};
+color:  var(--words);
 :hover{
-  color: ${props => props.theme.primary};
+  color:  var(--primary);
   cursor: pointer;
 }
 `;
@@ -71,7 +71,7 @@ export const Map = styled.div`
 `;
 
 export const InformationSection = styled.div`
-background-color:  ${props => props.theme.background};
+background-color:  var(--lightBackground);
 width: 69%;
 height: 100%;
 overflow-y: auto;
@@ -81,29 +81,32 @@ align-items: left;
 justify-content: left;
 border-radius: 10px;
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 12px;
 }
 /* Track */
 ::-webkit-scrollbar-track {
-${props => props.theme.background}
+  background:var(--background);
+  width: 10px;
 }
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: ${props => props.theme.lightBackground}; 
+  background: var(--lightBackground); 
   border-radius: 10px;
+  width: 12px;
 }
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background:${props => props.theme.primary}; 
+  background:var(--primary); 
+  cursor: pointer;
 }
 `;
 
 export const MapBoxSection = styled.div`
-background-color: ${props => props.theme.background};
+background-color: var(--background);
 width: 31%;
 height: 100%;
 overflow: hidden;
-color: ${props => props.theme.words};
+color: var(--words);
 .mapboxgl-ctrl-logo{
   display:none;
 }
@@ -135,15 +138,17 @@ export const BtnViewGeneral = css`
 display: flex;
 justify-content: center;
 align-items: center;
-color:#f8f8f2;
+color:var(--words);
 border-radius: 5px;
-border: 1px dashed #8be9fd;
-background-color: #44475a;
+border: 2px dotted var(--words);
+background-color: var(--background);
 padding: 5px;
-width: 100px;
+width: 4vw;
 :hover{
   cursor: pointer;
-  color:#8be9fd;
+  color:var(--primary);
+border: 2px solid var(--primary);
+
     }
 `;
 
@@ -151,10 +156,10 @@ export const BtnViewGeneralClicked = css`
 display: flex;
 justify-content: center;
 align-items: center;
-color:#8be9fd;
+color:var(--primary);
 border-radius: 5px;
-border: 1px solid #8be9fd;
-background-color: #44475a;
+border: 1px solid var(--primary);
+background-color: var(--background);
 padding: 5px;
 width: 100px;
 `;
@@ -177,7 +182,7 @@ flex-direction: column;
 justify-content: left;
 align-items: left;
 gap: 10px;
-background-color: ${props => props.theme.background};
+background-color:var(--background);
 padding: 10px;
 width: 70%;
 height: auto;
@@ -189,10 +194,10 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 gap: 10px;
-background-color: ${props => props.theme.lightBackground};
+background-color: var(--lightBackground);
 width: 26%;
 height:auto;
-color: ${props => props.theme.words};
+color: var(--words);
 border-radius: 10px;
 margin: 10px;
 padding: 10px;
@@ -216,7 +221,7 @@ export const LabelAside = styled.h4`
 font-size: 0.8rem;
 text-align: center;
 width: 90%;
-border-bottom: 5px solid ${props => props.theme.background};
+border-bottom: 5px solid var(--background);
 padding-bottom: 20px;
 :nth-last-child(1){
   border-bottom:none;
@@ -228,7 +233,7 @@ display: flex;
 flex-direction: row;
 align-items: center;
 justify-content: left;
-background-color: ${props => props.theme.lightBackground};
+background-color: var(--lightBackground);
 width: 100%;
 height: 50px;
 border-radius: 999px;
@@ -244,6 +249,7 @@ export const RowDivs = styled.div`
 display: flex;
  flex-direction: row;
   flex-wrap: wrap;
+  background-color:var(--background);
 `;
 
 

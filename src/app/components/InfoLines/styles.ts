@@ -31,7 +31,7 @@ display: flex;
 flex-direction: row;
 align-items: center;
 justify-content: space-between;
-background-color: ${props => props.theme.lightBackground};
+background-color:var(--lightBackground);
 width: 100%;
 height: 50px;
 border-radius: 999px;
@@ -42,7 +42,7 @@ padding: 1rem;
 
 export const LabelPBar = styled.h5`
  width: 20%;
-    color:${props => props.theme.words} ;
+    color:var(--words) ;
     font-size: 1.2rem;
     font-weight: 100;
 `;
@@ -52,7 +52,7 @@ export const ValuePBar = styled.h5<IBar>`
     color: ${({valor}) => valor! <= 30 ? "#800000" : valor! <= 70 ? "#cc9900" : "#264d00" } ;
     font-size: 1.2rem;
     font-weight: 100;
-    background-color: ${props => props.theme.background} ;
+    background-color: var(--background) ;
     text-align: center;
     border-radius: 999px;
 `;
@@ -63,7 +63,7 @@ export const ProgressBar = styled.progress<IBar>`
     appearance: none;
     border-radius: 999px;
     ::-webkit-progress-bar {
-      background-color: ${props => props.theme.background};
+      background-color:var(--background);
       border-radius: 999px;
     }
     ::-webkit-progress-value {

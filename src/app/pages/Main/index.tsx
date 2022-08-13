@@ -45,15 +45,36 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch, { SwitchProps } from '@mui/material/Switch';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
-
+import useLocalStorage from 'use-local-storage'
 
 // Import do styled components
-import {Container, FilterMenu, WrapPrincipal, PrincipalSection, InputSearch,WrapPopover, BtnFilterState, BtnFilterPricing, BtnFilterClimate, BtnFilterCity, BtnFlag, LeftMenuSection, RightMenuSection, styleModal} from './styles';
+import {Container,
+   FilterMenu,
+    WrapPrincipal,
+     PrincipalSection,
+      InputSearch
+      ,WrapPopover,
+       BtnFilterState,
+        BtnFilterPricing,
+         BtnFilterClimate,
+          BtnFilterCity,
+           BtnFlag,
+            LeftMenuSection,
+             RightMenuSection,
+              styleModal} from './styles';
 
 const Main = () => {
+    // thema logic
+     const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+     const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light');
+
+     const switchTheme = () => {
+      const newTheme = theme === 'light' ? 'dark': 'light';
+      setTheme(newTheme);
+    }
     // Contexto
     const { language, setLanguage } = useContext(LanguageContext);
-    const themeContext = useContext(ThemeContext);
+
     // PopOver
     const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);
     const open = Boolean(anchorEl);
@@ -184,7 +205,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   const handleCloseModal = () => setOpenModal(false);
 
     return(
-      <>
+      <div data-theme={theme}>
       <Modal
       open={openModal}
       onClose={handleCloseModal}
@@ -208,6 +229,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
             zoom={11}
             cost={localStorage.getItem("language") === "pt-BR" ? (456 * 4.2) : 456}
             wifi={76}
+            theme={theme}
             />
       </Box>
     </Modal>
@@ -237,15 +259,16 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
                     horizontal: "center",
                     }}
                 >
-                    <WrapPopover>
+                    <WrapPopover theme={theme}>
                      <BtnFlag onClick={handlePT}><Br className="flag"/></BtnFlag>
                      <BtnFlag onClick={handleEN}><Us className="flag"/></BtnFlag>
                      </WrapPopover>
                 </Popover>
-                <FormGroup>
+             
+                <FormGroup >
                     <FormControlLabel
-                        control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
-                        label=""
+                        control={<MaterialUISwitch sx={{ m: 1 }} onChange={switchTheme} checked= {theme === 'light' ? false : true}/>}
+                        label={theme === 'light' ? "LIGHT" : "DARK"}
                     />
                 </FormGroup>
                 </RightMenuSection>
@@ -320,7 +343,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
             </PrincipalSection>
             </WrapPrincipal>
         </Container>
-        </>
+        </div>
     )
 };
 export default Main;
