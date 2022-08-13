@@ -1,20 +1,19 @@
-import React from "react";
+import React from 'react';
 
 /**
  * Interface do COntainer
  */
 interface IMap extends React.HTMLAttributes<HTMLElement> {
-    lng: number ;
-    lat: number ;
-    zoom?: number;
-    IconInfo?:string ;
-    infoLabelCost?: string;
-    infoValueCost?:number ;
-    infoLabelSec?: string;
-    infoValueSec?:number ;
-    infoTemp?: number;
-    mapTheme: string;
+  lng: number;
+  lat: number;
+  zoom?: number;
+  IconInfo?: string;
+  infoLabelCost?: string;
+  infoValueCost?: number;
+  infoLabelSec?: string;
+  infoValueSec?: number;
+  infoTemp?: number;
+  mapTheme: string;
 }
 
-
-export type {IMap};
+export type { IMap };

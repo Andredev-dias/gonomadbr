@@ -1,11 +1,9 @@
-import React from "react";
+import React from 'react';
 
 /**
  * Interface do COntainer
  */
-interface ICharts extends React.HTMLAttributes<HTMLElement> {
-  
-}
+interface ICharts
+  extends React.HTMLAttributes<HTMLElement> {}
 
-
-export type {ICharts};
+export type { ICharts };
