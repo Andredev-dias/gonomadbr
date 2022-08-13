@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   Container,
   Section,
@@ -20,6 +20,15 @@ import ReactPlayer from 'react-player';
 
 const MainHeader = () => {
   const { language } = useContext(LanguageContext);
+  const [copyName, setCopyName] = useState('');
+  const [welcome, setWelcome] = useState('');
+
+  const handleName = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setCopyName(e.target.value);
+  };
+
   return (
     <Container>
       {/* <BackgroundImage src={ImgBackgroundHeader} alt="Header" /> */}
@@ -43,12 +52,16 @@ const MainHeader = () => {
             </TextHeader>
           </TitleHeader>
           <SubTitle>
-            {helper.getText('subtitle', language)}
+            {helper.getText('subtitle', language)}.
+            <br />
+            Bem Vindo {welcome}.
           </SubTitle>
         </LeftSection>
         <RightSection>
           <IconLogin />
           <Input
+            onChange={handleName}
+            value={copyName}
             placeholder={helper.getText(
               'typeYourName',
               language
@@ -59,6 +72,19 @@ const MainHeader = () => {
             placeholder="**********"
             type="password"
           ></Input>
+          <button
+            onClick={() => setWelcome(copyName)}
+            style={{
+              background: 'var(--lightBackground)',
+              color: 'var(--primary)',
+              borderRadius: '999px',
+              padding: '10px',
+              border: '2px solid var(--background)',
+              cursor: 'pointer',
+            }}
+          >
+            Login
+          </button>
           <NoRegistration>
             {helper.getText('notRegistered', language)}
           </NoRegistration>
