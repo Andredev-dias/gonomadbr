@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -34,8 +34,8 @@ const GlobalStyle = createGlobalStyle`
   word-break: normal;
 }
 
-body, header, code {
-  font-family: "Co Text", sans-serif;
+body, header, code, html {
+  font-family:  Helvetica;
 }
 
 :root {

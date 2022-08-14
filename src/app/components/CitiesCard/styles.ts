@@ -55,6 +55,7 @@ export const IconWeatherFirst = styled(
   TiWeatherPartlySunny
 )`
   ${IconBarsCSS1};
+  color: #f8f8f2;
 `;
 
 export const Container = styled.button`
@@ -194,9 +195,9 @@ export const WrapTemp = styled.div`
 `;
 
 export const Temp = styled.h1`
-  color: var(--words);
+  color: #f8f8f2;
   font-size: 2.5rem;
-  text-shadow: 2px 2px var(--background);
+  text-shadow: 3px 5px #282a36;
   text-align: left;
   margin-top: 2vh;
 `;
@@ -205,9 +206,9 @@ export const TitleFirst = styled.h2<IContainer>`
   position: absolute;
   top: 20px;
   left: 100px;
-  color: var(--words);
+  color: #f8f8f2;
   width: 100px;
   height: auto;
   font-size: 1.5rem;
-  text-shadow: 2px 2px var(--background);
+  text-shadow: 2px 2px #282a36;
 `;
