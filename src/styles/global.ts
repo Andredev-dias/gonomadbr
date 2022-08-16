@@ -25,6 +25,9 @@ const GlobalStyle = createGlobalStyle`
   background:#8884d8; 
   cursor: pointer;
 }
+::-webkit-scrollbar-corner{
+  background: var(--background); 
+}
 }
 
 *, *:before, *:after {

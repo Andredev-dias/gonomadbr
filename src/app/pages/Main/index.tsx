@@ -50,9 +50,11 @@ import Switch, { SwitchProps } from '@mui/material/Switch';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import useLocalStorage from 'use-local-storage';
-import data from '../../../services/citiesCardsInfo.json';
 // Import interfaces
 import { IDataCards } from './interfaces';
+
+import dataCards from '../../../services/citiesCardsInfo.json';
+import dataModal from '../../../services/citiesModal.json';
 
 // Import do styled components
 import {
@@ -69,10 +71,11 @@ import {
   BtnFlag,
   LeftMenuSection,
   RightMenuSection,
-  styleModal,
+  styleModaldark,
+  styleModalLight,
 } from './styles';
 
-const Main = (props: IDataCards) => {
+const Main = () => {
   // thema logic
   const defaultDark = window.matchMedia(
     '(prefers-color-scheme: dark)'
@@ -232,8 +235,25 @@ const Main = (props: IDataCards) => {
   const handleOpenModal = () => setOpenModal(true);
   const handleCloseModal = () => setOpenModal(false);
 
-  console.log(data);
+  // const [data, setData] = React.useState<IDataCards>({});
+  // const [filter, setFilter] = React.useState<IDataCards>(
+  //   {}
+  // );
+  // const [search, setSearch] = React.useState<IDataCards>(
+  //   {}
+  // );
+  // console.log(dataCards);
+  // console.log(search, 'filtrado');
 
+  // useEffect(() => {
+  //   return setData(dataCards);
+  // }, []);
+
+  // useEffect(() => {
+  //   return setFilter(
+  //     dataCards.filter((data) => data.name.includes(search))
+  //   );
+  // }, [search]);
   return (
     <div data-theme={theme}>
       <Modal
@@ -243,7 +263,13 @@ const Main = (props: IDataCards) => {
         aria-describedby="modal-modal-description"
         keepMounted
       >
-        <Box sx={styleModal}>
+        <Box
+          sx={
+            theme === 'light'
+              ? styleModalLight
+              : styleModaldark
+          }
+        >
           <ModalDataFromCards
             infoLabelCost="Satisfacao"
             infoValueCost={15}
@@ -272,6 +298,9 @@ const Main = (props: IDataCards) => {
         <FilterMenu>
           <LeftMenuSection>
             <InputSearch
+              name="search"
+              // onChange={(e) => setSearch(e.target.value)}
+              // value={search}
               placeholder={helper.getText(
                 'typeYourSearch',
                 language
@@ -352,7 +381,7 @@ const Main = (props: IDataCards) => {
         </FilterMenu>
         <WrapPrincipal>
           <PrincipalSection>
-            {data.map((item) => {
+            {dataCards.map((item) => {
               return (
                 <CitiesCard
                   onClick={handleOpenModal}
@@ -367,7 +396,7 @@ const Main = (props: IDataCards) => {
                     localStorage.getItem('language') ===
                     'pt-BR'
                       ? item.cost
-                      : item.cost * 4.2
+                      : item.cost && item.cost * 4.2
                   }
                   costUnity={
                     localStorage.getItem('language') ===
@@ -379,7 +408,8 @@ const Main = (props: IDataCards) => {
                     localStorage.getItem('language') ===
                     'pt-BR'
                       ? item.temp
-                      : (item.temp * 9) / 5 + 32
+                      : item.temp &&
+                        (item.temp * 9) / 5 + 32
                   }
                   unityTemp={
                     localStorage.getItem('language') ===
@@ -390,90 +420,6 @@ const Main = (props: IDataCards) => {
                 />
               );
             })}
-
-            {/* <CitiesCard
-              onClick={handleOpenModal}
-              city="Maceió - AL"
-              image="https://raw.githubusercontent.com/Andredev-dias/gonomadbr/main/src/assets/cities/maceio.jpg"
-              satisfactionValue={82}
-              cultureValue={56}
-              homeSecutityValue={29}
-              transValue={97}
-              wifi={76}
-              cost={
-                localStorage.getItem('language') === 'pt-BR'
-                  ? 1.437 * 4.2
-                  : 1.437
-              }
-              costUnity={
-                localStorage.getItem('language') === 'en-US'
-                  ? 'US$'
-                  : 'R$'
-              }
-              temperature={
-                localStorage.getItem('language') === 'pt-BR'
-                  ? 34
-                  : (34 * 9) / 5 + 32
-              }
-              unityTemp={
-                localStorage.getItem('language') === 'en-US'
-                  ? '°F'
-                  : '°C'
-              }
-            /> */}
-            {/* <CitiesCard
-              onClick={handleOpenModal}
-              city="Macapá - AP"
-              image="https://firebasestorage.googleapis.com/v0/b/nomadbr-51538.appspot.com/o/imagem_materia.jpeg?alt=media&token=d50b97dc-6f2d-44ab-83bc-aa417a84288d"
-              satisfactionValue={82}
-              cultureValue={56}
-              homeSecutityValue={29}
-              transValue={97}
-              wifi={76}
-              cost={
-                localStorage.getItem('language') === 'pt-BR'
-                  ? 456 * 4.2
-                  : 456
-              }
-              costUnity={
-                localStorage.getItem('language') === 'en-US'
-                  ? 'US$'
-                  : 'R$'
-              }
-              temperature={
-                localStorage.getItem('language') === 'pt-BR'
-                  ? 16
-                  : (16 * 9) / 5 + 32
-              }
-              unityTemp={
-                localStorage.getItem('language') === 'en-US'
-                  ? '°F'
-                  : '°C'
-              }
-            /> */}
-            {/* <CitiesCard city="Manaus - AM" image={Manaus}/>
-                <CitiesCard city="Fortaleza - CE" image={Fortaleza}/>
-                <CitiesCard city="Brasília - DF" image={Brasilia}/>
-                <CitiesCard city="Vitória - ES" image={Vitoria}/>
-                <CitiesCard city="Goiânia - GO" image={Goiania}/>
-                <CitiesCard city="São Luís - MA" image={SaoLuis}/>
-                <CitiesCard city="Cuiabá - MT" image={Cuiaba}/>
-                <CitiesCard city="Campo Grande - MS" image={CampoGrande}/>
-                <CitiesCard city="Belo Horizonte - MG" image={Belo}/>
-                <CitiesCard city="Belém - PA" image={Belem}/>
-                <CitiesCard city="João Pessoa - PB" image={Joao}/>
-                <CitiesCard city="Curitiba - PR" image={Curitiba}/>
-                <CitiesCard city="Recife - PE" image={Recife}/>
-                <CitiesCard city="Teresina - PI" image={Teresina}/>
-                <CitiesCard city="Rio de Janeiro - RJ" image={Rio}/>
-                <CitiesCard city="Natal - RN" image={Natal}/>
-                <CitiesCard city="Porto Alegre - RS" image={PortoAlegre}/>
-                <CitiesCard city="Porto Velho - RO" image={PortoVelho}/>
-                <CitiesCard city="Boa Vista - RR" image={BoaVista}/>
-                <CitiesCard city="Florianópolis - SC" image={Floripa}/>
-                <CitiesCard city="São Paulo - SP" image={SP}/>
-                <CitiesCard city="Aracaju - SE" image={Aracaju}/>
-                <CitiesCard city="Palmas - TO" image={Palmas}/> */}
           </PrincipalSection>
         </WrapPrincipal>
       </Container>

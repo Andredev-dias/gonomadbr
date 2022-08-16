@@ -6,14 +6,13 @@ import mapboxgl from 'mapbox-gl'; // eslint-disable-line import/no-webpack-loade
 import { IMap } from './interfaces';
 mapboxgl.accessToken =
   'pk.eyJ1IjoiZGVjb3NhbXVyYXkiLCJhIjoiY2w2bGJ0ZTU0MGE4NDNkbXJxaTFoaWhicyJ9.E7suFxe03-TU6SE0z_Rb9A';
-
 const FullMap = (props: IMap) => {
   const mapDiv = useRef<HTMLDivElement>(null);
   let [map, setMap] = useState(null);
 
   const [lng, setLng] = useState(props.lng);
   const [lat, setLat] = useState(props.lat);
-
+  console.log(props);
   useEffect(() => {
     const attachMap = (
       setMap: React.Dispatch<React.SetStateAction<any>>,
@@ -32,7 +31,7 @@ const FullMap = (props: IMap) => {
     };
 
     !map && attachMap(setMap, mapDiv);
-  }, [map]);
+  }, [map, props.mapTheme]);
 
   return (
     <Container>

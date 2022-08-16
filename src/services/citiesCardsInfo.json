@@ -1,6 +1,5 @@
 [
   {
-    "id": 1,
     "name": "Rio Branco - AC",
     "temp": 28,
     "imageUrl": "https://raw.githubusercontent.com/Andredev-dias/gonomadbr/main/src/assets/cities/riobranco.jpg",
@@ -12,7 +11,6 @@
     "wifi": 42
   },
   {
-    "id": 2,
     "name": "Maceio - AL",
     "temp": 18,
     "imageUrl": "https://raw.githubusercontent.com/Andredev-dias/gonomadbr/main/src/assets/cities/maceio.jpg",
@@ -24,7 +22,6 @@
     "wifi": 72
   },
   {
-    "id": 2,
     "name": "Macapa - AP",
     "temp": 32,
     "imageUrl": "https://firebasestorage.googleapis.com/v0/b/nomadbr-51538.appspot.com/o/imagem_materia.jpeg?alt=media&token=d50b97dc-6f2d-44ab-83bc-aa417a84288d",
@@ -36,7 +33,6 @@
     "wifi": 88
   },
   {
-    "id": 1,
     "name": "Rio Branco - AC",
     "temp": 28,
     "imageUrl": "https://raw.githubusercontent.com/Andredev-dias/gonomadbr/main/src/assets/cities/riobranco.jpg",
@@ -48,7 +44,6 @@
     "wifi": 42
   },
   {
-    "id": 2,
     "name": "Maceio - AL",
     "temp": 18,
     "imageUrl": "https://raw.githubusercontent.com/Andredev-dias/gonomadbr/main/src/assets/cities/maceio.jpg",
@@ -60,7 +55,6 @@
     "wifi": 72
   },
   {
-    "id": 2,
     "name": "Macapa - AP",
     "temp": 32,
     "imageUrl": "https://firebasestorage.googleapis.com/v0/b/nomadbr-51538.appspot.com/o/imagem_materia.jpeg?alt=media&token=d50b97dc-6f2d-44ab-83bc-aa417a84288d",
@@ -72,7 +66,6 @@
     "wifi": 88
   },
   {
-    "id": 1,
     "name": "Rio Branco - AC",
     "temp": 28,
     "imageUrl": "https://raw.githubusercontent.com/Andredev-dias/gonomadbr/main/src/assets/cities/riobranco.jpg",
@@ -84,7 +77,6 @@
     "wifi": 42
   },
   {
-    "id": 2,
     "name": "Maceio - AL",
     "temp": 18,
     "imageUrl": "https://raw.githubusercontent.com/Andredev-dias/gonomadbr/main/src/assets/cities/maceio.jpg",
@@ -96,7 +88,6 @@
     "wifi": 72
   },
   {
-    "id": 2,
     "name": "Macapa - AP",
     "temp": 32,
     "imageUrl": "https://firebasestorage.googleapis.com/v0/b/nomadbr-51538.appspot.com/o/imagem_materia.jpeg?alt=media&token=d50b97dc-6f2d-44ab-83bc-aa417a84288d",

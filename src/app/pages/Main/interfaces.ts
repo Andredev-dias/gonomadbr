@@ -14,6 +14,8 @@ interface IDataCards
   transValue?: number;
   cultureValue?: number;
   wifi?: number;
+  dataCards?: string;
+  dataModal?: string;
 }
 
 export type { IDataCards };

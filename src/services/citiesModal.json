@@ -1,0 +1,42 @@
+[
+  {
+    "Rio Branco": {
+      "name": "Rio Branco - AC",
+      "temp": 28,
+      "imageUrl": "https://raw.githubusercontent.com/Andredev-dias/gonomadbr/main/src/assets/cities/riobranco.jpg",
+      "cost": 1.311,
+      "satisfactionValue": 22,
+      "cultureValue": 86,
+      "homeSecutityValue": 19,
+      "transValue": 67,
+      "wifi": 42
+    }
+  },
+  {
+    "Maceio": {
+      "name": "Maceio - AL",
+      "temp": 18,
+      "imageUrl": "https://raw.githubusercontent.com/Andredev-dias/gonomadbr/main/src/assets/cities/maceio.jpg",
+      "cost": 2.316,
+      "satisfactionValue": 8,
+      "cultureValue": 33,
+      "homeSecutityValue": 55,
+      "transValue": 11,
+      "wifi": 72
+    }
+  },
+  {
+    "Macapa": {
+      "id": 2,
+      "name": "Macapa - AP",
+      "temp": 32,
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/nomadbr-51538.appspot.com/o/imagem_materia.jpeg?alt=media&token=d50b97dc-6f2d-44ab-83bc-aa417a84288d",
+      "cost": 1.619,
+      "satisfactionValue": 100,
+      "cultureValue": 55,
+      "homeSecutityValue": 66,
+      "transValue": 77,
+      "wifi": 88
+    }
+  }
+]
